@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es-AR" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AM — Software y diseño web a medida</title>
-<meta name="description" content="Desarrollo apps y sitios web a medida para comercios, alquileres, escuelas y proyectos independientes. Cinco sistemas funcionando todos los días en Argentina.">
+<title id="pageTitle">AM — Software y diseño web a medida</title>
+<meta name="description" id="metaDesc" content="Desarrollo apps y sitios web a medida para comercios, alquileres, escuelas y proyectos independientes. Cinco sistemas funcionando todos los días en Argentina.">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,50,1;1,9..144,400..600,50,1&family=Instrument+Sans:wght@400;500;600&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --papel:#FFFFFF;
-  --crema:#F2EFEA;
-  --crema-2:#E9E4DC;
+  --papel:#F5F1EA;
+  --crema:#EFE9DC;
+  --crema-2:#E7DECB;
   --blanco:#FFFFFF;
 
-  --tinta:#120E0D;
-  --humo:#4E453F;
-  --humo-soft:#736A63;
+  --tinta:#14110F;
+  --humo:#5A5049;
+  --humo-soft:#8A8078;
 
-  --verde:#8C2740;
-  --verde-deep:#67172C;
-  --verde-tinte:#F8E8EC;
-  --verde-linea:#D9AFBA;
+  --verde:#C8761A;
+  --verde-deep:#A6600F;
+  --verde-tinte:#F7EAD9;
+  --verde-linea:#E3C39A;
 
-  --filo:#CBC2B8;
-  --oro:#8C2740;
-  --oro-deep:#67172C;
-  --oro-tinte:#F8E8EC;
+  --filo:#DACFBC;
+  --oro:#C8761A;
+  --oro-deep:#A6600F;
+  --oro-tinte:#F7EAD9;
 
   --f-display:'Fraunces', Georgia, serif;
   --f-body:'Instrument Sans', system-ui, sans-serif;
@@ -81,6 +81,13 @@ a{color:inherit;} img{max-width:100%;}
   font-size:.85rem; font-weight:600; padding:11px 19px; border-radius:2px; transition:background .22s;
 }
 .nav-cta:hover{background:var(--verde-deep);}
+.lang-toggle{
+  font-family:var(--f-mono); font-size:.72rem; font-weight:600; letter-spacing:.06em;
+  border:1.5px solid var(--tinta); color:var(--tinta); background:transparent;
+  padding:9px 13px; border-radius:2px; cursor:pointer; transition:background .2s, color .2s;
+  flex:0 0 auto;
+}
+.lang-toggle:hover{background:var(--tinta); color:var(--papel);}
 .burger{display:none; background:none; border:1px solid var(--filo); border-radius:3px; padding:9px 10px; cursor:pointer; flex-direction:column; gap:4px;}
 .burger span{display:block; width:18px; height:1.5px; background:var(--tinta);}
 
@@ -129,20 +136,16 @@ a{color:inherit;} img{max-width:100%;}
 
 .old{
   font-family:var(--f-display); font-style:italic; font-weight:400;
-  color:var(--humo); font-size:1.02rem; display:inline;
-  background-image:linear-gradient(var(--verde), var(--verde));
-  background-repeat:no-repeat; background-position:0 58%; background-size:0% 2px;
-  -webkit-box-decoration-break:clone; box-decoration-break:clone;
-  animation:strike .5s cubic-bezier(.6,0,.3,1) forwards;
+  color:var(--humo); font-size:1.02rem; line-height:1.3;
+  text-decoration:line-through; text-decoration-color:var(--verde); text-decoration-thickness:2px;
 }
-.ledger-row:nth-child(2) .old{animation-delay:.75s;}
-.ledger-row:nth-child(3) .old{animation-delay:.9s;}
-.ledger-row:nth-child(4) .old{animation-delay:1.05s;}
-.ledger-row:nth-child(5) .old{animation-delay:1.2s;}
-@keyframes strike{to{background-size:100% 2px;}}
 
 .arrow{font-family:var(--f-mono); color:var(--oro-deep); font-size:.85rem;}
-.new{font-weight:600; font-size:.97rem; text-align:right;}
+.new{font-weight:600; font-size:.87rem; text-align:right; line-height:1.35;}
+.ledger-close{
+  margin-top:18px; padding-top:16px; border-top:1px dashed var(--filo);
+  font-size:.88rem; color:var(--humo); line-height:1.5;
+}
 
 /* ---------- TIRA ---------- */
 .strip{background:var(--verde); border-bottom:none;}
@@ -208,7 +211,7 @@ a{color:inherit;} img{max-width:100%;}
 .band{background:var(--crema-2); border-top:2px solid var(--verde); border-bottom:2px solid var(--verde);}
 .band-quote{
   font-family:var(--f-display); font-weight:400; font-size:clamp(1.5rem,3.4vw,2.5rem);
-  letter-spacing:-.02em; line-height:1.18; max-width:22ch; margin-bottom:clamp(44px,6vw,72px);
+  letter-spacing:-.02em; line-height:1.18; max-width:40ch; margin-bottom:clamp(44px,6vw,72px);
   color:var(--tinta);
 }
 .band-quote em{font-style:italic; color:var(--oro-deep);}
@@ -287,7 +290,6 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms !important; animation-delay:0s !important; transition-duration:.001ms !important;}
   .ledger-row{opacity:1; transform:none;}
-  .old{background-size:100% 2px;}
   .case{opacity:1; transform:none;}
   html{scroll-behavior:auto;}
 }
@@ -302,84 +304,86 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
       <span class="mark">AM</span>
       <span class="logo-txt">
         <b>Estudio AM</b>
-        <i>Software y diseño web</i>
+        <i data-en="Software &amp; Web Design">Software y diseño web</i>
       </span>
     </a>
+    <button id="langBtn" class="lang-toggle" type="button">EN</button>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#trabajo">Qué hago</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#proceso">Cómo trabajo</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#trabajo" data-en="What I do">Qué hago</a></li>
+      <li><a href="#proyectos" data-en="Projects">Proyectos</a></li>
+      <li><a href="#proceso" data-en="How I work">Cómo trabajo</a></li>
+      <li><a href="#contacto" data-en="Contact">Contacto</a></li>
     </ul>
-    <a href="#contacto" class="nav-cta">Contame tu idea</a>
+    <a href="#contacto" class="nav-cta" data-en="Tell me your idea">Contame tu idea</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="shell hero-grid">
     <div>
-      <span class="eyebrow">Software a medida · Argentina</span>
-      <h1 class="display">Cada app empieza con un <span class="hl">cuaderno</span> que ya no da más.</h1>
-      <p class="hero-sub">Diseño herramientas para el trabajo de todos los días: <strong>cobrar, anotar, controlar, planificar</strong>. Sin tecnicismos, sin funciones de adorno, y hechas para el celular que ya tenés en el bolsillo.</p>
+      <span class="eyebrow" data-en="Custom software · Argentina">Software a medida · Argentina</span>
+      <h1 class="display" data-en="Every app starts with a <span class=&quot;hl&quot;>notebook</span> that&#39;s stopped working.">Cada app empieza con un <span class="hl">cuaderno</span> que ya no da más.</h1>
+      <p class="hero-sub" data-en="I design tools for everyday work: <strong>billing, logging, tracking, planning</strong>. No jargon, no bells and whistles, built for the phone you already carry.">Diseño herramientas para el trabajo de todos los días: <strong>cobrar, anotar, controlar, planificar</strong>. Sin tecnicismos, sin funciones de adorno, y hechas para el celular que ya tenés en el bolsillo.</p>
       <div class="hero-actions">
-        <a href="#contacto" class="btn btn-solid">Contame tu idea <span class="btn-arrow">→</span></a>
-        <a href="#proyectos" class="btn btn-line">Ver los cinco proyectos</a>
+        <a href="#contacto" class="btn btn-solid" data-en="Tell me your idea <span class=&quot;btn-arrow&quot;>→</span>">Contame tu idea <span class="btn-arrow">→</span></a>
+        <a href="#proyectos" class="btn btn-line" data-en="See the five projects">Ver los cinco proyectos</a>
       </div>
     </div>
 
     <div class="ledger">
-      <div class="ledger-head"><span>Lo que reemplacé</span><span>Por</span></div>
+      <div class="ledger-head"><span data-en="What I replaced">Lo que reemplacé</span><span data-en="With">Por</span></div>
       <div class="ledger-row">
-        <span class="old">Cuaderno de ventas</span><span class="arrow">→</span><span class="new">Yuyitos y algo más</span>
+        <span class="old" data-en="Sales notebook">Cuaderno de ventas</span><span class="arrow">→</span><span class="new" data-en="Sales and cash register, from your phone">Ventas y caja resueltas desde el celular</span>
       </div>
       <div class="ledger-row">
-        <span class="old">Planilla de asistencia</span><span class="arrow">→</span><span class="new">Agenda Docente</span>
+        <span class="old" data-en="Attendance sheet">Planilla de asistencia</span><span class="arrow">→</span><span class="new" data-en="Attendance that takes itself, no sheet needed">Asistencia que se toma sola, sin planilla</span>
       </div>
       <div class="ledger-row">
-        <span class="old">Excel de reservas</span><span class="arrow">→</span><span class="new">El Bohemio MDQ</span>
+        <span class="old" data-en="Booking spreadsheet">Excel de reservas</span><span class="arrow">→</span><span class="new" data-en="Bookings, payments and balances in one calendar">Reservas, pagos y saldos en un solo calendario</span>
       </div>
       <div class="ledger-row">
-        <span class="old">Carpeta de letras impresas</span><span class="arrow">→</span><span class="new">My Lyrics Box</span>
+        <span class="old" data-en="Folder of printed lyrics">Carpeta de letras impresas</span><span class="arrow">→</span><span class="new" data-en="The whole setlist in hand, up on stage">Todo el repertorio en la mano, arriba del escenario</span>
       </div>
+      <p class="ledger-close" data-en="Math done on a calculator, contacts that get lost in the chat, due dates nobody remembers to check. Every one of those problems has a solution in a single place.">Cuentas hechas con calculadora, contactos que se pierden en el chat, vencimientos que nadie se acuerda de mirar. Cada uno de esos problemas tiene solución en un solo lugar.</p>
     </div>
   </div>
 </section>
 
 <div class="strip">
   <div class="shell strip-in">
-    <div class="stat"><div class="n">5</div><div class="l">sistemas funcionando hoy</div></div>
-    <div class="stat"><div class="n">100%</div><div class="l">a medida, sin plantillas</div></div>
-    <div class="stat"><div class="n">0</div><div class="l">clientes abandonados post-entrega</div></div>
+    <div class="stat"><div class="n">5</div><div class="l" data-en="systems in real daily use">sistemas en uso real, día a día</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l" data-en="personalized, built around you">personalizado, pensado para vos</div></div>
+    <div class="stat"><div class="n" style="font-size:clamp(1.5rem,2.6vw,2.1rem)" data-en="24–48 hs">24–48 hs</div><div class="l" data-en="response time on any consultation">tiempo de respuesta ante cualquier consulta</div></div>
   </div>
 </div>
 
 <section class="sec" id="trabajo">
   <div class="shell">
     <div class="sec-head">
-      <span class="eyebrow">01 — Qué hago</span>
+      <span class="eyebrow" data-en="01 — What I do">01 — Qué hago</span>
       <div>
-        <h2>Tres formas de sacarte un problema de encima.</h2>
-        <p>Todo se entrega funcionando, andando en celular, tablet y computadora, y explicado en castellano común.</p>
+        <h2 data-en="Three ways to get a problem off your plate.">Tres formas de sacarte un problema de encima.</h2>
+        <p data-en="Everything ships working, running on phone, tablet and computer, explained in plain language.">Todo se entrega funcionando, andando en celular, tablet y computadora, y explicado en castellano común.</p>
       </div>
     </div>
     <div class="svc">
       <div class="svc-item">
-        <span class="svc-mark">Gestión</span>
-        <h3>Apps para el día a día</h3>
-        <p>Ventas, caja, stock, reservas, asistencia, gastos. Lo que hoy llevás en papel o en una planilla que se rompe sola, en una app que entra en el bolsillo y funciona aunque se corte internet.</p>
+        <span class="svc-mark" data-en="Management">Gestión</span>
+        <h3 data-en="Everyday apps">Apps para el día a día</h3>
+        <p data-en="Sales, cash register, stock, bookings, attendance, expenses. What you track today on paper or in a spreadsheet that keeps breaking, turned into an app that fits in your pocket and works even offline.">Ventas, caja, stock, reservas, asistencia, gastos. Lo que hoy llevás en papel o en una planilla que se rompe sola, en una app que entra en el bolsillo y funciona aunque se corte internet.</p>
       </div>
       <div class="svc-item">
-        <span class="svc-mark">Presencia</span>
-        <h3>Sitios web con oficio</h3>
-        <p>Una dirección propia donde tu negocio se explica solo. Rápida, clara y pensada primero para el celular, que es donde te va a encontrar casi todo el mundo.</p>
+        <span class="svc-mark" data-en="Presence">Presencia</span>
+        <h3 data-en="Websites done right">Sitios web con oficio</h3>
+        <p data-en="Your own address where your business explains itself. Fast, clear, and built mobile-first, since that&#39;s where almost everyone will find you.">Una dirección propia donde tu negocio se explica solo. Rápida, clara y pensada primero para el celular, que es donde te va a encontrar casi todo el mundo.</p>
       </div>
       <div class="svc-item">
-        <span class="svc-mark">Continuidad</span>
-        <h3>Seguimiento de verdad</h3>
-        <p>El día que necesites un cambio, sigo estando. Todos los sistemas de acá abajo se siguen ajustando según lo que va pidiendo quien los usa. No entrego y desaparezco.</p>
+        <span class="svc-mark" data-en="Continuity">Continuidad</span>
+        <h3 data-en="Real follow-up">Seguimiento de verdad</h3>
+        <p data-en="The day you need a change, I&#39;m still here. Every system below keeps getting adjusted based on what the people using it actually need. I don&#39;t deliver and disappear.">El día que necesites un cambio, sigo estando. Todos los sistemas de acá abajo se siguen ajustando según lo que va pidiendo quien los usa. No entrego y desaparezco.</p>
       </div>
     </div>
   </div>
@@ -388,34 +392,36 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
 <section class="sec" id="proyectos" style="padding-top:0;">
   <div class="shell">
     <div class="sec-head">
-      <span class="eyebrow">02 — Proyectos</span>
+      <span class="eyebrow" data-en="02 — Projects">02 — Proyectos</span>
       <div>
-        <h2>Cinco herramientas, cinco problemas concretos.</h2>
-        <p>Ninguna nació de una idea abstracta. Todas empezaron con alguien diciendo "esto me está haciendo perder horas".</p>
+        <h2 data-en="Five tools, five real problems.">Cinco herramientas, cinco problemas concretos.</h2>
+        <p data-en="None of these started as an abstract idea. Each one began with someone saying &quot;this is costing me hours.&quot;">Ninguna nació de una idea abstracta. Todas empezaron con alguien diciendo "esto me está haciendo perder horas".</p>
       </div>
     </div>
 
     <article class="case">
       <div class="case-top">
         <span class="case-idx">01</span><h3>Agenda Docente</h3>
-        <span class="chip">Educación</span><span class="chip ghost">En uso real</span>
+        <span class="chip" data-en="Education">Educación</span><span class="chip ghost" data-en="Live">En uso real</span>
       </div>
-      <p class="case-replaces">Reemplaza la planilla de asistencia, el Excel de promedios y el cuaderno de contenidos.</p>
+      <p class="case-replaces" data-en="Replaces the attendance sheet, the grades spreadsheet, and the curriculum notebook.">Reemplaza la planilla de asistencia, el Excel de promedios y el cuaderno de contenidos.</p>
       <div class="case-body">
         <div>
           <div class="shot"><span>Captura próximamente</span></div>
           <div class="tags"><span>Web app</span><span>Offline</span><span>Mobile-first</span></div>
         </div>
         <div>
-          <p class="case-lead">Todos los cursos, materias y alumnos de un profesor en un solo lugar ordenado, con los cálculos que la escuela exige hechos automáticamente.</p>
+          <p class="case-lead" data-en="Every course, subject, and student a teacher has, organized in one place, with all the calculations the school requires done automatically.">Todos los cursos, materias y alumnos de un profesor en un solo lugar ordenado, con los cálculos que la escuela exige hechos automáticamente.</p>
           <ul class="feats">
-            <li>Asistencia clase por clase, con historial completo por alumno</li>
-            <li>Exámenes y recuperatorios en siete modalidades distintas</li>
-            <li>Promedio final automático, ponderado y con redondeo configurable</li>
-            <li>Sistema de intensificación con notas de aprobación por período</li>
-            <li>Contenidos y planificación por materia, con importación del DC de PBA</li>
-            <li>Horarios y calendario semanal de todos los cursos</li>
-            <li>Funciona sin conexión, dentro y fuera del aula</li>
+            <li data-en="Class-by-class attendance, with a full history per student">Asistencia clase por clase, con historial completo por alumno</li>
+            <li data-en="Exams and retakes across seven different formats">Exámenes y recuperatorios en siete modalidades distintas</li>
+            <li data-en="Automatic final average, weighted, with configurable rounding">Promedio final automático, ponderado y con redondeo configurable</li>
+            <li data-en="Support-track system with passing grades set per period">Sistema de intensificación con notas de aprobación por período</li>
+            <li data-en="Curriculum content and planning per subject, with PBA curriculum import">Contenidos y planificación por materia, con importación del DC de PBA</li>
+            <li data-en="Holidays and non-working days loaded automatically into the calendar">Feriados y días no laborables cargados automáticamente en el calendario</li>
+            <li data-en="Leave tracking that calculates the days you&#39;re entitled to under the statute, based on your employment category">Registro de licencias con el cálculo de los días que corresponden según el estatuto y tu situación de revista</li>
+            <li data-en="Schedules and weekly calendar for every course">Horarios y calendario semanal de todos los cursos</li>
+            <li data-en="Works offline, inside and outside the classroom">Funciona sin conexión, dentro y fuera del aula</li>
           </ul>
         </div>
       </div>
@@ -424,24 +430,24 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
     <article class="case">
       <div class="case-top">
         <span class="case-idx">02</span><h3>Yuyitos y algo más</h3>
-        <span class="chip">Comercio</span><span class="chip ghost">En uso real</span>
+        <span class="chip" data-en="Retail">Comercio</span><span class="chip ghost" data-en="Live">En uso real</span>
       </div>
-      <p class="case-replaces">Reemplaza el cuaderno de ventas, la calculadora y las cuentas de fin de mes.</p>
+      <p class="case-replaces" data-en="Replaces the sales notebook, the calculator, and the end-of-month math.">Reemplaza el cuaderno de ventas, la calculadora y las cuentas de fin de mes.</p>
       <div class="case-body">
         <div>
           <div class="shot"><span>Captura próximamente</span></div>
-          <div class="tags"><span>Punto de venta</span><span>Offline</span><span>Google Drive</span></div>
+          <div class="tags"><span data-en="Point of sale">Punto de venta</span><span>Offline</span><span>Google Drive</span></div>
         </div>
         <div>
-          <p class="case-lead">Punto de venta hecho a medida para un almacén de productos naturales, diseñado para una tablet sin chip y para venderse de parada, rápido.</p>
+          <p class="case-lead" data-en="A custom point-of-sale system for a natural foods store, designed for a tablet without a SIM card, built to sell fast on your feet.">Punto de venta hecho a medida para un almacén de productos naturales, diseñado para una tablet sin chip y para venderse de parada, rápido.</p>
           <ul class="feats">
-            <li>Venta a granel por peso o directo por monto en pesos</li>
-            <li>Pagos combinados entre varios medios, con la comisión de Cuenta DNI calculada aparte</li>
-            <li>Caja diaria y balance mensual con gastos por categoría</li>
-            <li>Alertas de productos por vencer y ya vencidos</li>
-            <li>Vende sin conexión: los datos quedan guardados en el dispositivo</li>
-            <li>Copia de seguridad en Google Drive que se sincroniza apenas hay señal</li>
-            <li>Envío de comprobantes por WhatsApp</li>
+            <li data-en="Bulk sales by weight or straight by amount in pesos">Venta a granel por peso o directo por monto en pesos</li>
+            <li data-en="Combined payments across multiple methods, with the Cuenta DNI commission calculated separately">Pagos combinados entre varios medios, con la comisión de Cuenta DNI calculada aparte</li>
+            <li data-en="Daily cash register and monthly balance with expenses by category">Caja diaria y balance mensual con gastos por categoría</li>
+            <li data-en="Alerts for products about to expire and already expired">Alertas de productos por vencer y ya vencidos</li>
+            <li data-en="Sells offline: data stays saved on the device">Vende sin conexión: los datos quedan guardados en el dispositivo</li>
+            <li data-en="Google Drive backup that syncs as soon as there&#39;s signal">Copia de seguridad en Google Drive que se sincroniza apenas hay señal</li>
+            <li data-en="Receipts sent via WhatsApp and email">Envío de comprobantes por WhatsApp y mail</li>
           </ul>
         </div>
       </div>
@@ -450,23 +456,23 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
     <article class="case">
       <div class="case-top">
         <span class="case-idx">03</span><h3>El Bohemio MDQ</h3>
-        <span class="chip">Turismo</span><span class="chip ghost">En uso real</span>
+        <span class="chip" data-en="Tourism">Turismo</span><span class="chip ghost" data-en="Live">En uso real</span>
       </div>
-      <p class="case-replaces">Reemplaza el Excel de reservas y los recibos sueltos en un cajón.</p>
+      <p class="case-replaces" data-en="Replaces the booking spreadsheet and the loose receipts in a drawer.">Reemplaza el Excel de reservas y los recibos sueltos en un cajón.</p>
       <div class="case-body">
         <div>
           <div class="shot"><span>Captura próximamente</span></div>
-          <div class="tags"><span>Gestión</span><span>Finanzas</span><span>Google Drive</span></div>
+          <div class="tags"><span data-en="Management">Gestión</span><span data-en="Finance">Finanzas</span><span>Google Drive</span></div>
         </div>
         <div>
-          <p class="case-lead">Contaduría completa de un departamento de alquiler temporario: quién viene, cuánto pagó, qué falta cobrar y en qué se fue la plata.</p>
+          <p class="case-lead" data-en="Complete bookkeeping for a short-term rental apartment: who&#39;s coming, what they paid, what&#39;s still owed, and where the money went.">Contaduría completa de un departamento de alquiler temporario: quién viene, cuánto pagó, qué falta cobrar y en qué se fue la plata.</p>
           <ul class="feats">
-            <li>Calendario de ocupación con todas las reservas cargadas</li>
-            <li>Pagos y saldo pendiente por huésped, con historial</li>
-            <li>Gastos por categoría fija: expensas, luz, gas, mantenimiento, impuestos</li>
-            <li>Balance de ganancias y gastos separado por moneda (ARS / USD)</li>
-            <li>Buscador de huéspedes con resultados instantáneos</li>
-            <li>Copia de seguridad automática en Google Drive</li>
+            <li data-en="Occupancy calendar with every booking logged">Calendario de ocupación con todas las reservas cargadas</li>
+            <li data-en="Payments and outstanding balance per guest, with history">Pagos y saldo pendiente por huésped, con historial</li>
+            <li data-en="Expenses by fixed category: building fees, electricity, gas, maintenance, taxes">Gastos por categoría fija: expensas, luz, gas, mantenimiento, impuestos</li>
+            <li data-en="Profit and expense balance separated by currency (ARS / USD)">Balance de ganancias y gastos separado por moneda (ARS / USD)</li>
+            <li data-en="Guest search with instant results">Buscador de huéspedes con resultados instantáneos</li>
+            <li data-en="Automatic Google Drive backup">Copia de seguridad automática en Google Drive</li>
           </ul>
         </div>
       </div>
@@ -475,23 +481,25 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
     <article class="case">
       <div class="case-top">
         <span class="case-idx">04</span><h3>My Lyrics Box</h3>
-        <span class="chip">Música</span><span class="chip ghost">En uso real</span>
+        <span class="chip" data-en="Music">Música</span><span class="chip ghost" data-en="Live">En uso real</span>
       </div>
-      <p class="case-replaces">Reemplaza la carpeta de letras impresas y el Word gigante antes del show.</p>
+      <p class="case-replaces" data-en="Replaces the folder of printed lyrics and the giant Word file before the show.">Reemplaza la carpeta de letras impresas y el Word gigante antes del show.</p>
       <div class="case-body">
         <div>
           <div class="shot"><span>Captura próximamente</span></div>
-          <div class="tags"><span>Web app</span><span>Offline</span><span>Versión paga</span></div>
+          <div class="tags"><span>Web app</span><span>Offline</span><span data-en="Paid version">Versión paga</span></div>
         </div>
         <div>
-          <p class="case-lead">La caja de letras de una banda: guardás las canciones, armás el repertorio de cada show y vas pasando los temas arriba del escenario con un toque.</p>
+          <p class="case-lead" data-en="A band&#39;s lyrics box: save your songs, build each show&#39;s setlist, and flip through them on stage with a tap.">La caja de letras de una banda: guardás las canciones, armás el repertorio de cada show y vas pasando los temas arriba del escenario con un toque.</p>
           <ul class="feats">
-            <li>Buscador instantáneo entre todas las canciones guardadas</li>
-            <li>Letra en pantalla grande con autoscroll, sin tocar el celular mientras tocás</li>
-            <li>Organización por banda y por show</li>
-            <li>Funciona sin señal, que es como suelen estar los escenarios</li>
-            <li>Búsqueda y dictado por voz en la versión completa</li>
-            <li>Versión gratis con límite de canciones y versión completa por código</li>
+            <li data-en="Instant search across every saved song">Buscador instantáneo entre todas las canciones guardadas</li>
+            <li data-en="Lyrics on a big screen with autoscroll, no need to touch the phone while you play">Letra en pantalla grande con autoscroll, sin tocar el celular mientras tocás</li>
+            <li data-en="Organized by band and by show">Organización por banda y por show</li>
+            <li data-en="Works with no signal, which is how most stages are">Funciona sin señal, que es como suelen estar los escenarios</li>
+            <li data-en="Search and dictation by voice in the full version">Búsqueda y dictado por voz en la versión completa</li>
+            <li data-en="Repertoire and lyrics can also be printed on paper">El repertorio y las letras también se pueden imprimir en papel</li>
+            <li data-en="Foot-pedal control to change songs without letting go of the instrument (coming soon)">Control por pedal para ir cambiando de tema sin soltar el instrumento (próximamente)</li>
+            <li data-en="Free version with a song limit, and full version unlocked by code">Versión gratis con límite de canciones y versión completa por código</li>
           </ul>
         </div>
       </div>
@@ -500,22 +508,22 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
     <article class="case">
       <div class="case-top">
         <span class="case-idx">05</span><h3>Kiosko Don José</h3>
-        <span class="chip">Comercio</span><span class="chip ghost">Entorno de pruebas</span>
+        <span class="chip" data-en="Retail">Comercio</span><span class="chip ghost" data-en="Testing environment">Entorno de pruebas</span>
       </div>
-      <p class="case-replaces">No reemplaza nada: protege lo que ya funciona.</p>
+      <p class="case-replaces" data-en="It doesn&#39;t replace anything: it protects what already works.">No reemplaza nada: protege lo que ya funciona.</p>
       <div class="case-body">
         <div>
           <div class="shot"><span>Captura próximamente</span></div>
-          <div class="tags"><span>Base reutilizable</span><span>Datos ficticios</span></div>
+          <div class="tags"><span data-en="Reusable base">Base reutilizable</span><span data-en="Sample data">Datos ficticios</span></div>
         </div>
         <div>
-          <p class="case-lead">Una copia limpia de Yuyitos con datos inventados, donde pruebo cada función nueva antes de que llegue a la app real de un cliente. Nadie se entera de que existe, y ese es exactamente el punto.</p>
+          <p class="case-lead" data-en="A clean copy of Yuyitos with made-up data, where I test every new feature before it reaches a client&#39;s real app. Nobody knows it exists, and that&#39;s exactly the point.">Una copia limpia de Yuyitos con datos inventados, donde pruebo cada función nueva antes de que llegue a la app real de un cliente. Nadie se entera de que existe, y ese es exactamente el punto.</p>
           <ul class="feats">
-            <li>Catálogo de ejemplo, sin un solo dato real de ningún cliente</li>
-            <li>Misma lógica de venta, caja y stock ya probada en producción</li>
-            <li>Permite equivocarse sin consecuencias antes de subir un cambio</li>
-            <li>Nombre, colores y datos del negocio configurables desde un solo bloque</li>
-            <li>Sirve además como punto de partida para adaptar a otro comercio</li>
+            <li data-en="Sample catalog, without a single real client&#39;s data">Catálogo de ejemplo, sin un solo dato real de ningún cliente</li>
+            <li data-en="Same sales, cash register, and stock logic already tested in production">Misma lógica de venta, caja y stock ya probada en producción</li>
+            <li data-en="Lets me get things wrong with no consequences before shipping a change">Permite equivocarse sin consecuencias antes de subir un cambio</li>
+            <li data-en="Business name, colors, and data configurable from a single block">Nombre, colores y datos del negocio configurables desde un solo bloque</li>
+            <li data-en="Also works as a starting point to adapt for another business">Sirve además como punto de partida para adaptar a otro comercio</li>
           </ul>
         </div>
       </div>
@@ -525,13 +533,13 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
 
 <section class="band" id="proceso">
   <div class="shell sec">
-    <span class="eyebrow">03 — Cómo trabajo</span>
-    <p class="band-quote">No te voy a hablar de <em>tecnología</em>. Te voy a preguntar qué parte de tu semana te está robando el tiempo.</p>
+    <span class="eyebrow" data-en="03 — How I work">03 — Cómo trabajo</span>
+    <p class="band-quote" data-en="I&#39;m not going to talk to you about <em>technology</em>. I&#39;m going to ask what part of your week is stealing your time.">No te voy a hablar de <em>tecnología</em>. Te voy a preguntar qué parte de tu semana te está robando el tiempo.</p>
     <div class="steps">
-      <div class="step"><span class="num">PASO 01</span><h4>Charlamos</h4><p>Me contás cómo lo hacés hoy. Sin preparar nada y sin saber nada técnico.</p></div>
-      <div class="step"><span class="num">PASO 02</span><h4>Propuesta</h4><p>Te paso por escrito qué va a hacer, cuánto sale y para cuándo. Sin letra chica.</p></div>
-      <div class="step"><span class="num">PASO 03</span><h4>Lo armo</h4><p>Vas viendo el sistema real funcionando mientras lo construyo, no dibujos.</p></div>
-      <div class="step"><span class="num">PASO 04</span><h4>Y me quedo</h4><p>Se entrega andando, y los ajustes que aparezcan usándolo los seguimos viendo.</p></div>
+      <div class="step"><span class="num" data-en="STEP 01">PASO 01</span><h4 data-en="We talk">Charlamos</h4><p data-en="You tell me how you do it today. No prep needed, no tech knowledge required.">Me contás cómo lo hacés hoy. Sin preparar nada y sin saber nada técnico.</p></div>
+      <div class="step"><span class="num" data-en="STEP 02">PASO 02</span><h4 data-en="Proposal">Propuesta</h4><p data-en="I send you in writing what it&#39;ll do, what it costs, and by when. No fine print.">Te paso por escrito qué va a hacer, cuánto sale y para cuándo. Sin letra chica.</p></div>
+      <div class="step"><span class="num" data-en="STEP 03">PASO 03</span><h4 data-en="I build it">Lo armo</h4><p data-en="You watch the real system working as I build it, not mockups.">Vas viendo el sistema real funcionando mientras lo construyo, no dibujos.</p></div>
+      <div class="step"><span class="num" data-en="STEP 04">PASO 04</span><h4 data-en="And I stay">Y me quedo</h4><p data-en="It&#39;s delivered working. If you need adjustments or maintenance later on, we&#39;re still in touch to arrange it.">Se entrega andando. Si después necesitás ajustes o mantenimiento, seguimos en contacto para coordinarlo.</p></div>
     </div>
   </div>
 </section>
@@ -539,48 +547,89 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
 <section class="sec" id="contacto">
   <div class="shell contact-grid">
     <div class="contact-copy">
-      <span class="eyebrow">04 — Contacto</span>
-      <h2 class="display">¿Qué te está haciendo perder tiempo?</h2>
-      <p>Contámelo como se lo contarías a un conocido. Del resto me encargo yo.</p>
+      <span class="eyebrow" data-en="04 — Contact">04 — Contacto</span>
+      <h2 class="display" data-en="What&#39;s wasting your time?">¿Qué te está haciendo perder tiempo?</h2>
+      <p data-en="Tell me about it like you&#39;d tell a friend. I&#39;ll handle the rest.">Contámelo como se lo contarías a un conocido. Del resto me encargo yo.</p>
       <div class="contact-direct">
-        <span class="k">O escribime directo</span>
-        <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a>
+        <span class="k" data-en="Or write to me directly">O escribime directo</span>
+        <a href="mailto:estudioam.software@gmail.com">estudioam.software@gmail.com</a>
       </div>
     </div>
 
     <form id="form">
       <div class="row2">
-        <div class="f"><label for="name">Nombre</label><input type="text" id="name" required autocomplete="name"></div>
+        <div class="f"><label for="name" data-en="Name">Nombre</label><input type="text" id="name" required autocomplete="name"></div>
         <div class="f"><label for="email">Email</label><input type="email" id="email" required autocomplete="email"></div>
       </div>
       <div class="f">
-        <label for="type">Qué necesitás</label>
+        <label for="type" data-en="What you need">Qué necesitás</label>
         <select id="type">
-          <option>Una app de gestión a medida</option>
-          <option>Un sitio web</option>
-          <option>Mejorar algo que ya tengo</option>
-          <option>Todavía no sé bien, quiero consultar</option>
+          <option data-en="A custom management app">Una app de gestión a medida</option>
+          <option data-en="A website">Un sitio web</option>
+          <option data-en="Improve something I already have">Mejorar algo que ya tengo</option>
+          <option data-en="Not sure yet, I want to ask">Todavía no sé bien, quiero consultar</option>
         </select>
       </div>
       <div class="f">
-        <label for="msg">Contame un poco más</label>
-        <textarea id="msg" required placeholder="¿Cómo lo hacés hoy y qué te gustaría que fuera distinto?"></textarea>
+        <label for="msg" data-en="Tell me a bit more">Contame un poco más</label>
+        <textarea id="msg" required placeholder="¿Cómo lo hacés hoy y qué te gustaría que fuera distinto?" data-en-placeholder="How do you do it today, and what would you like to be different?"></textarea>
       </div>
-      <button type="submit" class="send">Enviar consulta</button>
-      <p class="hint">Al enviar se abre tu correo con el mensaje ya escrito. Solo tenés que confirmarlo.</p>
+      <button type="submit" class="send" data-en="Send inquiry">Enviar consulta</button>
+      <p class="hint" data-en="Submitting opens your email with the message already written. You just need to confirm it.">Al enviar se abre tu correo con el mensaje ya escrito. Solo tenés que confirmarlo.</p>
     </form>
   </div>
 </section>
 
 <footer>
   <div class="shell foot-in">
-    <p>Estudio AM — Software y diseño web a medida</p>
+    <p data-en="Estudio AM — Custom software &amp; web design">Estudio AM — Software y diseño web a medida</p>
     <p>Argentina · 2026</p>
   </div>
 </footer>
 
 <script>
 (function(){
+  var langBtn = document.getElementById('langBtn');
+  var htmlRoot = document.getElementById('htmlRoot');
+  var pageTitle = document.getElementById('pageTitle');
+  var metaDesc = document.getElementById('metaDesc');
+
+  var TITLE_ES = 'AM — Software y diseño web a medida';
+  var TITLE_EN = 'AM — Custom software & web design';
+  var DESC_ES = 'Desarrollo apps y sitios web a medida para comercios, alquileres, escuelas y proyectos independientes. Cinco sistemas funcionando todos los días en Argentina.';
+  var DESC_EN = 'Custom apps and websites for shops, rentals, schools and independent projects. Five systems running every day in Argentina.';
+
+  function applyLang(lang){
+    var nodes = document.querySelectorAll('[data-en]');
+    for (var i = 0; i < nodes.length; i++){
+      var el = nodes[i];
+      if (!el.hasAttribute('data-es')) el.setAttribute('data-es', el.innerHTML);
+      el.innerHTML = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+    }
+    var ph = document.querySelectorAll('[data-en-placeholder]');
+    for (var j = 0; j < ph.length; j++){
+      var pel = ph[j];
+      if (!pel.hasAttribute('data-es-placeholder')) pel.setAttribute('data-es-placeholder', pel.getAttribute('placeholder'));
+      pel.setAttribute('placeholder', lang === 'en' ? pel.getAttribute('data-en-placeholder') : pel.getAttribute('data-es-placeholder'));
+    }
+    if (htmlRoot) htmlRoot.setAttribute('lang', lang === 'en' ? 'en' : 'es-AR');
+    if (pageTitle) pageTitle.textContent = lang === 'en' ? TITLE_EN : TITLE_ES;
+    if (metaDesc) metaDesc.setAttribute('content', lang === 'en' ? DESC_EN : DESC_ES);
+    if (langBtn) langBtn.textContent = lang === 'en' ? 'ES' : 'EN';
+    try { localStorage.setItem('am-lang', lang); } catch (e) {}
+  }
+
+  var savedLang = 'es';
+  try { savedLang = localStorage.getItem('am-lang') || 'es'; } catch (e) {}
+  applyLang(savedLang);
+
+  if (langBtn){
+    langBtn.addEventListener('click', function(){
+      var next = (htmlRoot.getAttribute('lang') === 'en') ? 'es' : 'en';
+      applyLang(next);
+    });
+  }
+
   var burger = document.getElementById('burger');
   var links  = document.getElementById('navLinks');
   burger.addEventListener('click', function(){
@@ -614,7 +663,7 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
     var x = document.getElementById('msg').value;
     var subject = encodeURIComponent('Consulta desde el sitio — ' + t);
     var body = encodeURIComponent('Nombre: ' + n + '\nEmail: ' + m + '\nNecesita: ' + t + '\n\n' + x);
-    window.location.href = 'mailto:tuemail@ejemplo.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:estudioam.software@gmail.com?subject=' + subject + '&body=' + body;
   });
 })();
 </script>

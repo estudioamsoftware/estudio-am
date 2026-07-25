@@ -46,6 +46,8 @@ body{
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 a{color:inherit;} img{max-width:100%;}
+p{text-wrap:pretty;}
+h1,h2,h3,h4{text-wrap:balance;}
 .shell{max-width:var(--maxw); margin:0 auto; padding-left:var(--gut); padding-right:var(--gut);}
 
 .eyebrow{
@@ -149,11 +151,15 @@ a{color:inherit;} img{max-width:100%;}
 
 /* ---------- TIRA ---------- */
 .strip{background:var(--verde); border-bottom:none;}
-.strip-in{display:grid; grid-template-columns:repeat(3,1fr);}
-.stat{padding:34px 0; text-align:center; position:relative;}
+.strip-in{display:grid; grid-template-columns:repeat(2,1fr);}
+.stat{padding:22px 0; text-align:center; position:relative;}
 .stat + .stat::before{content:''; position:absolute; left:0; top:24%; bottom:24%; width:1px; background:rgba(255,255,255,.3);}
-.stat .n{font-family:var(--f-display); font-size:clamp(1.8rem,3.2vw,2.5rem); font-weight:600; color:#fff; line-height:1; letter-spacing:-.02em;}
-.stat .l{font-family:var(--f-mono); font-size:.63rem; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.82); margin-top:10px;}
+.stat .n{font-family:var(--f-display); font-size:clamp(1.6rem,2.8vw,2.1rem); font-weight:600; color:#fff; line-height:1; letter-spacing:-.02em;}
+.stat .l{font-family:var(--f-mono); font-size:.63rem; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.82); margin-top:8px;}
+.scroll-cue{
+  text-align:center; padding:14px 0; font-family:var(--f-mono); font-size:.68rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--humo-soft); background:var(--papel);
+}
 
 /* ---------- SECCIONES ---------- */
 .sec{padding:clamp(64px,9vw,110px) 0;}
@@ -329,7 +335,7 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
       <p class="hero-sub" data-en="I design tools for everyday work: <strong>billing, logging, tracking, planning</strong>. No jargon, no bells and whistles, built for the phone you already carry.">Diseño herramientas para el trabajo de todos los días: <strong>cobrar, anotar, controlar, planificar</strong>. Sin tecnicismos, sin funciones de adorno, y hechas para el celular que ya tenés en el bolsillo.</p>
       <div class="hero-actions">
         <a href="#contacto" class="btn btn-solid" data-en="Tell me your idea <span class=&quot;btn-arrow&quot;>→</span>">Contame tu idea <span class="btn-arrow">→</span></a>
-        <a href="#proyectos" class="btn btn-line" data-en="See the five projects">Ver los cinco proyectos</a>
+        <a href="#proyectos" class="btn btn-line" data-en="See projects">Ver proyectos</a>
       </div>
     </div>
 
@@ -339,13 +345,13 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
         <span class="old" data-en="Sales notebook">Cuaderno de ventas</span><span class="arrow">→</span><span class="new" data-en="Sales and cash register, from your phone">Ventas y caja resueltas desde el celular</span>
       </div>
       <div class="ledger-row">
-        <span class="old" data-en="Attendance sheet">Planilla de asistencia</span><span class="arrow">→</span><span class="new" data-en="Attendance that takes itself, no sheet needed">Asistencia que se toma sola, sin planilla</span>
+        <span class="old" data-en="Attendance sheet">Planilla de asistencia</span><span class="arrow">→</span><span class="new" data-en="Attendance you log once, that shows up across the whole agenda">Asistencia fácil de cargar, que te acompaña en toda la agenda</span>
       </div>
       <div class="ledger-row">
         <span class="old" data-en="Booking spreadsheet">Excel de reservas</span><span class="arrow">→</span><span class="new" data-en="Bookings, payments and balances in one calendar">Reservas, pagos y saldos en un solo calendario</span>
       </div>
       <div class="ledger-row">
-        <span class="old" data-en="Folder of printed lyrics">Carpeta de letras impresas</span><span class="arrow">→</span><span class="new" data-en="The whole setlist in hand, up on stage">Todo el repertorio en la mano, arriba del escenario</span>
+        <span class="old" data-en="Folder of printed lyrics">Carpeta de letras impresas</span><span class="arrow">→</span><span class="new" data-en="A repertoire in order, run with a tap or a pedal">Repertorio ordenado, que manejás con un toque o un pedal</span>
       </div>
       <p class="ledger-close" data-en="Math done on a calculator, contacts that get lost in the chat, due dates nobody remembers to check. Every one of those problems has a solution in a single place.">Cuentas hechas con calculadora, contactos que se pierden en el chat, vencimientos que nadie se acuerda de mirar. Cada uno de esos problemas tiene solución en un solo lugar.</p>
     </div>
@@ -354,11 +360,11 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
 
 <div class="strip">
   <div class="shell strip-in">
-    <div class="stat"><div class="n">5</div><div class="l" data-en="systems in real daily use">sistemas en uso real, día a día</div></div>
     <div class="stat"><div class="n">100%</div><div class="l" data-en="personalized, built around you">personalizado, pensado para vos</div></div>
     <div class="stat"><div class="n" style="font-size:clamp(1.5rem,2.6vw,2.1rem)" data-en="24–48 hs">24–48 hs</div><div class="l" data-en="response time on any consultation">tiempo de respuesta ante cualquier consulta</div></div>
   </div>
 </div>
+<div class="scroll-cue" data-en="Keep scrolling to see the projects ↓">Seguí bajando para ver los proyectos ↓</div>
 
 <section class="sec" id="trabajo">
   <div class="shell">
@@ -366,7 +372,7 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
       <span class="eyebrow" data-en="01 — What I do">01 — Qué hago</span>
       <div>
         <h2 data-en="Three ways to get a problem off your plate.">Tres formas de sacarte un problema de encima.</h2>
-        <p data-en="Everything ships working, running on phone, tablet and computer, explained in plain language.">Todo se entrega funcionando, andando en celular, tablet y computadora, y explicado en castellano común.</p>
+        <p data-en="Everything ships working, running on phone, tablet and computer, explained in plain language. Accessible solutions, with no need for technical knowledge.">Todo se entrega funcionando, andando en celular, tablet y computadora, y explicado en castellano común. Soluciones accesibles, sin necesitar conocimientos de tecnología.</p>
       </div>
     </div>
     <div class="svc">
@@ -394,7 +400,7 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
     <div class="sec-head">
       <span class="eyebrow" data-en="02 — Projects">02 — Proyectos</span>
       <div>
-        <h2 data-en="Five tools, five real problems.">Cinco herramientas, cinco problemas concretos.</h2>
+        <h2 data-en="Tools for real problems.">Herramientas para problemas reales.</h2>
         <p data-en="None of these started as an abstract idea. Each one began with someone saying &quot;this is costing me hours.&quot;">Ninguna nació de una idea abstracta. Todas empezaron con alguien diciendo "esto me está haciendo perder horas".</p>
       </div>
     </div>
@@ -504,37 +510,13 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
         </div>
       </div>
     </article>
-
-    <article class="case">
-      <div class="case-top">
-        <span class="case-idx">05</span><h3>Kiosko Don José</h3>
-        <span class="chip" data-en="Retail">Comercio</span><span class="chip ghost" data-en="Testing environment">Entorno de pruebas</span>
-      </div>
-      <p class="case-replaces" data-en="It doesn&#39;t replace anything: it protects what already works.">No reemplaza nada: protege lo que ya funciona.</p>
-      <div class="case-body">
-        <div>
-          <div class="shot"><span>Captura próximamente</span></div>
-          <div class="tags"><span data-en="Reusable base">Base reutilizable</span><span data-en="Sample data">Datos ficticios</span></div>
-        </div>
-        <div>
-          <p class="case-lead" data-en="A clean copy of Yuyitos with made-up data, where I test every new feature before it reaches a client&#39;s real app. Nobody knows it exists, and that&#39;s exactly the point.">Una copia limpia de Yuyitos con datos inventados, donde pruebo cada función nueva antes de que llegue a la app real de un cliente. Nadie se entera de que existe, y ese es exactamente el punto.</p>
-          <ul class="feats">
-            <li data-en="Sample catalog, without a single real client&#39;s data">Catálogo de ejemplo, sin un solo dato real de ningún cliente</li>
-            <li data-en="Same sales, cash register, and stock logic already tested in production">Misma lógica de venta, caja y stock ya probada en producción</li>
-            <li data-en="Lets me get things wrong with no consequences before shipping a change">Permite equivocarse sin consecuencias antes de subir un cambio</li>
-            <li data-en="Business name, colors, and data configurable from a single block">Nombre, colores y datos del negocio configurables desde un solo bloque</li>
-            <li data-en="Also works as a starting point to adapt for another business">Sirve además como punto de partida para adaptar a otro comercio</li>
-          </ul>
-        </div>
-      </div>
-    </article>
   </div>
 </section>
 
 <section class="band" id="proceso">
   <div class="shell sec">
     <span class="eyebrow" data-en="03 — How I work">03 — Cómo trabajo</span>
-    <p class="band-quote" data-en="I&#39;m not going to talk to you about <em>technology</em>. I&#39;m going to ask what part of your week is stealing your time.">No te voy a hablar de <em>tecnología</em>. Te voy a preguntar qué parte de tu semana te está robando el tiempo.</p>
+    <p class="band-quote" data-en="I&#39;m not going to talk to you about <em>technology</em>. I&#39;m going to ask what tasks are stealing most of your time, and give you a way to get it back.">No te voy a hablar de <em>tecnología</em>. Voy a preguntarte qué tareas te roban más tiempo, y darte una solución para recuperarlo.</p>
     <div class="steps">
       <div class="step"><span class="num" data-en="STEP 01">PASO 01</span><h4 data-en="We talk">Charlamos</h4><p data-en="You tell me how you do it today. No prep needed, no tech knowledge required.">Me contás cómo lo hacés hoy. Sin preparar nada y sin saber nada técnico.</p></div>
       <div class="step"><span class="num" data-en="STEP 02">PASO 02</span><h4 data-en="Proposal">Propuesta</h4><p data-en="I send you in writing what it&#39;ll do, what it costs, and by when. No fine print.">Te paso por escrito qué va a hacer, cuánto sale y para cuándo. Sin letra chica.</p></div>

@@ -214,19 +214,22 @@ h1,h2,h3,h4{text-wrap:balance;}
 .tags span{font-family:var(--f-mono); font-size:.6rem; letter-spacing:.09em; text-transform:uppercase; color:var(--humo); border:1px solid var(--filo); padding:5px 9px; border-radius:2px;}
 
 /* ---------- TESTIMONIOS ---------- */
+.testimonials-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:14px; margin-top:26px;
+}
 .testimonial{
-  margin-top:18px; padding:16px 18px; background:var(--verde-tinte);
+  padding:16px 18px; background:var(--verde-tinte);
   border-left:3px solid var(--verde); border-radius:0 2px 2px 0;
 }
 .testimonial p{
   font-family:var(--f-display); font-style:italic; font-weight:400;
-  font-size:.98rem; line-height:1.45; color:var(--tinta);
+  font-size:.93rem; line-height:1.42; color:var(--tinta);
 }
 .testimonial cite{
   display:block; margin-top:9px; font-style:normal; font-family:var(--f-mono);
   font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--humo-soft);
 }
-.testimonial + .testimonial{margin-top:10px;}
 
 /* ---------- QUIEN SOY ---------- */
 #quien-soy{background:var(--crema-2); border-top:2px solid var(--verde); border-bottom:2px solid var(--verde);}
@@ -461,10 +464,12 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
             <li data-en="Schedules and weekly calendar for every course">Horarios y calendario semanal de todos los cursos</li>
             <li data-en="Works offline, inside and outside the classroom">Funciona sin conexión, dentro y fuera del aula</li>
           </ul>
-          <div class="testimonial">
-            <p data-en="I made it because I was fed up with loose papers and spreadsheets, missing curriculum deadlines, and not knowing how many leave days I had left. I still use it myself, every day, in my own courses.">La hice porque estaba harta de andar con papeles y planillas sueltas, perderme fechas de entrega de planificaciones, y no saber cuántas licencias me quedaban. La sigo usando yo misma, todos los días, en mis propios cursos.</p>
-            <cite data-en="Any, teacher &amp; creator of Agenda Docente">Any, docente y creadora de Agenda Docente</cite>
-          </div>
+        </div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p data-en="I made it because I was fed up with loose papers and spreadsheets, missing curriculum deadlines, and not knowing how many leave days I had left. I still use it myself, every day, in my own courses.">La hice porque estaba harta de andar con papeles y planillas sueltas, perderme fechas de entrega de planificaciones, y no saber cuántas licencias me quedaban. La sigo usando yo misma, todos los días, en mis propios cursos.</p>
+          <cite data-en="Any, teacher &amp; creator of Agenda Docente">Any, docente y creadora de Agenda Docente</cite>
         </div>
       </div>
     </article>
@@ -491,14 +496,16 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
             <li data-en="Google Drive backup that syncs as soon as there&#39;s signal">Copia de seguridad en Google Drive que se sincroniza apenas hay señal</li>
             <li data-en="Receipts sent via WhatsApp and email">Envío de comprobantes por WhatsApp y mail</li>
           </ul>
-          <div class="testimonial">
-            <p data-en="One day I had to run the store on my own, and I had no trouble at all: I made 4 sales without a hitch.">Un día tuve que quedarme solo en el local y no tuve ningún problema: hice 4 ventas sin trabas.</p>
-            <cite data-en="Sebastián, Yuyitos y algo más">Sebastián, Yuyitos y algo más</cite>
-          </div>
-          <div class="testimonial">
-            <p data-en="I use the voice command to search for products, it&#39;s easier than typing them. And the app warns me before I run out of stock, so I can build promos in time with what&#39;s about to expire.">Uso el comando de voz para buscar los productos, me resulta más fácil que escribirlos. Y la app me avisa antes de que me quede sin stock, así armo promos a tiempo con lo que está por vencer.</p>
-            <cite data-en="Lore, owner of Yuyitos">Lore, dueña de Yuyitos</cite>
-          </div>
+        </div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p data-en="One day I had to run the store on my own, and I had no trouble at all: I made 4 sales without a hitch.">Un día tuve que quedarme solo en el local y no tuve ningún problema: hice 4 ventas sin trabas.</p>
+          <cite data-en="Sebastián, Yuyitos y algo más">Sebastián, Yuyitos y algo más</cite>
+        </div>
+        <div class="testimonial">
+          <p data-en="I use the voice command to search for products, it&#39;s easier than typing them. And the app warns me before I run out of stock, so I can build promos in time with what&#39;s about to expire.">Uso el comando de voz para buscar los productos, me resulta más fácil que escribirlos. Y la app me avisa antes de que me quede sin stock, así armo promos a tiempo con lo que está por vencer.</p>
+          <cite data-en="Lore, owner of Yuyitos">Lore, dueña de Yuyitos</cite>
         </div>
       </div>
     </article>
@@ -551,18 +558,20 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
             <li data-en="Foot-pedal control to change songs without letting go of the instrument (coming soon)">Control por pedal para ir cambiando de tema sin soltar el instrumento (próximamente)</li>
             <li data-en="Free version with a song limit, and full version unlocked by code">Versión gratis con límite de canciones y versión completa por código</li>
           </ul>
-          <div class="testimonial">
-            <p data-en="The big-screen lyrics with autoscroll changed my shows: I don&#39;t have to touch my phone on stage anymore.">La letra grande con autoscroll me cambió los shows: no tengo que tocar el celular arriba del escenario.</p>
-            <cite data-en="Fabiana, My Lyrics Box">Fabiana, My Lyrics Box</cite>
-          </div>
-          <div class="testimonial">
-            <p data-en="As a songwriter, having a space to write my lyrics and voice dictation is exactly what I needed.">Como cantautor, tener un espacio para escribir mis letras y el dictado por voz es justo lo que necesitaba.</p>
-            <cite data-en="Humberto, My Lyrics Box">Humberto, My Lyrics Box</cite>
-          </div>
-          <div class="testimonial">
-            <p data-en="As a singer I was fed up with hundreds of printed lyrics, figuring out which ones to bring to each show, and then missing the one I needed &#8212; or playing something I hadn&#39;t brought at all. Now I always have it with me, complete, on my phone.">Como cantante estaba podrida de andar con cientos de letras impresas, calcular cuáles llevar a cada show y que después me faltara justo la que necesitaba, o que surgiera tocar algo que no había traído. Ahora la tengo siempre conmigo, completa, en el celular.</p>
-            <cite data-en="Any, singer &amp; creator of My Lyrics Box">Any, cantante y creadora de My Lyrics Box</cite>
-          </div>
+        </div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p data-en="The big-screen lyrics with autoscroll changed my shows: I don&#39;t have to touch my phone on stage anymore.">La letra grande con autoscroll me cambió los shows: no tengo que tocar el celular arriba del escenario.</p>
+          <cite data-en="Fabiana, My Lyrics Box">Fabiana, My Lyrics Box</cite>
+        </div>
+        <div class="testimonial">
+          <p data-en="As a songwriter, having a space to write my lyrics and voice dictation is exactly what I needed.">Como cantautor, tener un espacio para escribir mis letras y el dictado por voz es justo lo que necesitaba.</p>
+          <cite data-en="Humberto, My Lyrics Box">Humberto, My Lyrics Box</cite>
+        </div>
+        <div class="testimonial">
+          <p data-en="As a singer I was fed up with hundreds of printed lyrics, figuring out which ones to bring to each show, and then missing the one I needed &#8212; or playing something I hadn&#39;t brought at all. Now I always have it with me, complete, on my phone.">Como cantante estaba cansada de andar con cientos de letras impresas, calcular cuáles llevar a cada show y que después me faltara justo la que necesitaba, o que surgiera tocar algo que no había traído. Ahora la tengo siempre conmigo, completa, en el celular.</p>
+          <cite data-en="Any, singer &amp; creator of My Lyrics Box">Any, cantante y creadora de My Lyrics Box</cite>
         </div>
       </div>
     </article>

@@ -1,5 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 26 190 100">
-  <path d="M 10.422337,117.11416 48.820421,37.300995 92.1554,117.93697 91.881131,36.203908 136.58747,80.635977 178.00255,35.929636 V 117.6627" fill="none" stroke="#14110F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <polygon points="37.00,81.00 44.67,91.00 37.00,101.00 41.83,101.00 48.50,91.00 41.83,81.00" fill="#C8761A"/>
-  <polygon points="51.50,81.00 59.17,91.00 51.50,101.00 56.33,101.00 63.00,91.00 56.33,81.00" fill="#C8761A"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 26 190 100"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="isotipo-color.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.1105263"
+     inkscape:cx="62.8511"
+     inkscape:cy="13.020305"
+     inkscape:window-width="1264"
+     inkscape:window-height="945"
+     inkscape:window-x="11"
+     inkscape:window-y="5"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <path
+     d="M 10.422337,117.11416 48.820421,37.300995 92.1554,117.93697 91.881131,36.203908 136.58747,80.635977 178.00255,35.929636 V 117.6627"
+     fill="none"
+     stroke="#14110F"
+     stroke-width="8"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path1" />
+  <polygon
+     points="37.00,81.00 44.67,91.00 37.00,101.00 41.83,101.00 48.50,91.00 41.83,81.00"
+     fill="#C8761A"
+     id="polygon1" />
+  <polygon
+     points="56.33,101 63,91 56.33,81 51.5,81 59.17,91 51.5,101 "
+     fill="#c8761a"
+     id="polygon2-9-0"
+     transform="matrix(1.3851412,0,0,0.97306171,-34.373503,2.997782)"
+     style="stroke:#c8761a;stroke-width:2.41402;stroke-dasharray:none;stroke-opacity:1" />
+  <polygon
+     points="51.50,81.00 59.17,91.00 51.50,101.00 56.33,101.00 63.00,91.00 56.33,81.00"
+     fill="#C8761A"
+     id="polygon2" />
+  <polygon
+     points="56.33,101 63,91 56.33,81 51.5,81 59.17,91 51.5,101 "
+     fill="#c8761a"
+     id="polygon2-9"
+     transform="matrix(1.3851412,0,0,0.97306171,-20.089239,2.6035349)"
+     style="stroke:#c8761a;stroke-width:2.41402;stroke-dasharray:none;stroke-opacity:1" />
 </svg>

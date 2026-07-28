@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 26 190 150">
+  <path d="M 10.422337,117.11416 48.820421,37.300995 92.1554,117.93697 91.881131,36.203908 136.58747,80.635977 178.00255,35.929636 V 117.6627" fill="none" stroke="#14110F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="37.00,81.00 44.67,91.00 37.00,101.00 41.83,101.00 48.50,91.00 41.83,81.00" fill="#C8761A"/>
+  <polygon points="51.50,81.00 59.17,91.00 51.50,101.00 56.33,101.00 63.00,91.00 56.33,81.00" fill="#C8761A"/>
+  <text x="95" y="150" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="17" letter-spacing="5" fill="#14110F">ESTUDIO</text>
+  <line x1="85" y1="158" x2="105" y2="158" stroke="#C8761A" stroke-width="1"/>
+  <text x="95" y="169" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="6" letter-spacing="1.6" fill="#C8761A">CREACIÓN DE SOFTWARE</text>
+</svg>

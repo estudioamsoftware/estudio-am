@@ -570,6 +570,40 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
 @media (max-width:980px){
   section[id], article[id], #trabajo{scroll-margin-top:70px;}
 }
+
+/* ---------- AJUSTES DE CELULAR ---------- */
+@media (max-width:980px){
+  /* EN y menú juntos a la derecha, con el mismo tamaño y estilo */
+  .nav-in{gap:10px;}
+  .lang-toggle{margin-left:auto; height:44px; min-width:44px; padding:0 12px; border:1px solid var(--tinta); border-radius:3px;}
+  .burger{height:44px; width:44px; align-items:center; justify-content:center; border-color:var(--tinta);}
+}
+@media (max-width:760px){
+  /* título del hero alineado a la izquierda, igual que el resto del bloque */
+  .hero-mega{align-items:flex-start; text-align:left; gap:6px;}
+  .hero-mega h1, .hero-mega p{text-align:left;}
+  /* aire entre la tabla y "Herramientas para problemas cotidianos" */
+  .hero-grid{margin-bottom:56px;}
+  /* botones del hero a lo ancho, uno debajo del otro */
+  .hero-actions{flex-direction:column;}
+  .hero-actions .btn{justify-content:center;}
+  /* tabla "Reemplacé / Por": lo viejo arriba y lo nuevo abajo, sin cortar palabras */
+  .ledger-row{grid-template-columns:1fr; row-gap:4px;}
+  .new{text-align:left;}
+  .ledger-head span:last-child{display:none;}
+  /* carrusel: flechas abajo junto a los puntos, así el texto usa todo el ancho */
+  .hero-carousel{padding:0;}
+  .hc-arrow{top:auto; bottom:-14px; transform:none;}
+  .hc-prev{left:calc(50% - 100px);}
+  .hc-next{right:calc(50% - 100px);}
+  .hc-dots{min-height:40px; align-items:center;}
+  /* capturas de celular: todas del mismo tamaño aunque quede una sola en la fila */
+  .phone-frame{flex:0 1 calc(50% - 8px);}
+  /* botón de proyecto alineado a la izquierda bajo el título */
+  .case-link{margin-left:0;}
+  /* que el botón de WhatsApp no tape el final de la página */
+  footer{padding-bottom:96px;}
+}
 </style>
 </head>
 <body>

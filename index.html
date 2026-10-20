@@ -505,6 +505,8 @@ footer{border-top:1px solid var(--filo); padding:34px 0 44px;}
   .hero-mega h1{font-size:clamp(1.5rem,7vw,2.1rem); white-space:normal;}
   .hero-mega{margin-left:0; width:auto; align-items:center; text-align:center;}
   .hero-mega p{text-align:center; padding-left:0;}
+  /* "Es la tuya." en su propio renglón, así no queda "MÁS." colgando */
+  .hero-mega h1 .hl{display:block;}
   .case-body{grid-template-columns:1fr; gap:26px;}
   .shot{max-width:460px;}
   .steps{grid-template-columns:1fr 1fr;}
@@ -645,8 +647,8 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
   <div class="shell">
 
     <div class="hero-mega">
-      <h1 data-en="Digital solutions">Soluciones digitales</h1>
-      <p data-en="Made exclusively for you">Pensadas exclusivamente para vos</p>
+      <h1 data-en="Not just another app. <span class=&quot;hl&quot;>It&#39;s yours.</span>">No es una app más. <span class="hl">Es la tuya.</span></h1>
+      <p data-en="Built from your problem, together with you, and we keep adjusting it as you use it.">Nace de tu problema, hablando con vos, y la seguimos ajustando a medida que la usás.</p>
     </div>
 
     <div class="hero-grid">

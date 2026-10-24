@@ -1028,25 +1028,25 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
             <span class="scale" data-en="Smallest project">El proyecto más chico</span>
             <h4 data-en="A website">Un sitio web</h4>
             <p data-en="Your business explained in one place. It&#39;s resolved in one go, and it&#39;s the most accessible option.">Tu negocio explicado en un solo lugar. Se resuelve de una vez, y es la opción más accesible.</p>
-            <span class="tier-price" data-usd="160">desde AR$ 250.000</span>
+            <span class="tier-price" data-usd="160" data-usd-intl="400">desde AR$ 250.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Mid-range">Escala mediana</span>
             <h4 data-en="An app for one specific job">Una app para una tarea puntual</h4>
             <p data-en="Sales, bookings, attendance, expenses &#8212; whichever one is costing you the most time. Paid once, yours from then on.">Ventas, reservas, asistencia, gastos: la que te esté haciendo perder más tiempo. Se paga una vez y queda tuya.</p>
-            <span class="tier-price" data-usd="290">desde AR$ 450.000</span>
+            <span class="tier-price" data-usd="290" data-usd-intl="700">desde AR$ 450.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="To sell online">Para vender por internet</span>
             <h4 data-en="Online store">Tienda online</h4>
             <p data-en="Catalogue, cart and orders that arrive ready to confirm on WhatsApp. Like Vera Bocados, further up this page.">Catálogo, carrito y pedidos que llegan listos por WhatsApp para confirmar. Como la de Vera Bocados, más arriba.</p>
-            <span class="tier-price" data-usd="350">desde AR$ 540.000</span>
+            <span class="tier-price" data-usd="350" data-usd-intl="800">desde AR$ 540.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Largest project">El proyecto más grande</span>
             <h4 data-en="A complete system">Un sistema completo</h4>
             <p data-en="Several functions working together, offline use, cloud backup, receipts. Like the ones you saw further up this page.">Varias funciones trabajando juntas, uso sin conexión, respaldo en la nube, comprobantes. Como los que viste más arriba.</p>
-            <span class="tier-price" data-usd="780">desde AR$ 1.210.000</span>
+            <span class="tier-price" data-usd="780" data-usd-intl="1500">desde AR$ 1.210.000</span>
           </div>
         </div>
         <p class="budget-note" data-en="You can always start with the minimum that solves your problem, and add functions later on. Nothing has to be built all at once.">Siempre se puede arrancar por lo mínimo que te resuelva el problema, y sumar funciones más adelante. No hace falta hacerlo todo de una.</p>
@@ -1154,14 +1154,16 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
 
   // Precios del presupuesto: la base está en dólares (data-usd). En español se
   // muestran en pesos al dólar oficial del día; si no se puede consultar, se usa
-  // el último valor cargado a mano.
+  // el último valor cargado a mano. En inglés se muestra el precio para clientes
+  // de afuera (data-usd-intl).
   var usdRate = 1550;
   var priceEls = document.querySelectorAll('.tier-price[data-usd]');
   function renderPrices(lang){
     for (var k = 0; k < priceEls.length; k++){
       var usd = Number(priceEls[k].getAttribute('data-usd'));
       if (lang === 'en'){
-        priceEls[k].textContent = 'from US$ ' + usd.toLocaleString('en-US');
+        var intl = Number(priceEls[k].getAttribute('data-usd-intl'));
+        priceEls[k].textContent = 'from US$ ' + intl.toLocaleString('en-US');
       } else {
         var ars = Math.round(usd * usdRate / 10000) * 10000;
         priceEls[k].textContent = 'desde AR$ ' + ars.toLocaleString('es-AR');

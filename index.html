@@ -1028,25 +1028,25 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
             <span class="scale" data-en="Smallest project">El proyecto más chico</span>
             <h4 data-en="A website">Un sitio web</h4>
             <p data-en="Your business explained in one place. It&#39;s resolved in one go, and it&#39;s the most accessible option.">Tu negocio explicado en un solo lugar. Se resuelve de una vez, y es la opción más accesible.</p>
-            <span class="tier-price" data-en="from US$ 160">desde AR$ 250.000</span>
+            <span class="tier-price" data-usd="160">desde AR$ 250.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Mid-range">Escala mediana</span>
             <h4 data-en="An app for one specific job">Una app para una tarea puntual</h4>
             <p data-en="Sales, bookings, attendance, expenses &#8212; whichever one is costing you the most time. Paid once, yours from then on.">Ventas, reservas, asistencia, gastos: la que te esté haciendo perder más tiempo. Se paga una vez y queda tuya.</p>
-            <span class="tier-price" data-en="from US$ 290">desde AR$ 450.000</span>
+            <span class="tier-price" data-usd="290">desde AR$ 450.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="To sell online">Para vender por internet</span>
             <h4 data-en="Online store">Tienda online</h4>
             <p data-en="Catalogue, cart and orders that arrive ready to confirm on WhatsApp. Like Vera Bocados, further up this page.">Catálogo, carrito y pedidos que llegan listos por WhatsApp para confirmar. Como la de Vera Bocados, más arriba.</p>
-            <span class="tier-price" data-en="from US$ 350">desde AR$ 550.000</span>
+            <span class="tier-price" data-usd="350">desde AR$ 540.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Largest project">El proyecto más grande</span>
             <h4 data-en="A complete system">Un sistema completo</h4>
             <p data-en="Several functions working together, offline use, cloud backup, receipts. Like the ones you saw further up this page.">Varias funciones trabajando juntas, uso sin conexión, respaldo en la nube, comprobantes. Como los que viste más arriba.</p>
-            <span class="tier-price" data-en="from US$ 780">desde AR$ 1.200.000</span>
+            <span class="tier-price" data-usd="780">desde AR$ 1.210.000</span>
           </div>
         </div>
         <p class="budget-note" data-en="You can always start with the minimum that solves your problem, and add functions later on. Nothing has to be built all at once.">Siempre se puede arrancar por lo mínimo que te resuelva el problema, y sumar funciones más adelante. No hace falta hacerlo todo de una.</p>
@@ -1152,6 +1152,34 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
   var DESC_ES = 'Desarrollo apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes. Sistemas funcionando todos los días en Argentina.';
   var DESC_EN = 'Custom apps and websites for shops, bars and restaurants, holiday rentals, schools and independent projects. Real systems running every day in Argentina.';
 
+  // Precios del presupuesto: la base está en dólares (data-usd). En español se
+  // muestran en pesos al dólar oficial del día; si no se puede consultar, se usa
+  // el último valor cargado a mano.
+  var usdRate = 1550;
+  var priceEls = document.querySelectorAll('.tier-price[data-usd]');
+  function renderPrices(lang){
+    for (var k = 0; k < priceEls.length; k++){
+      var usd = Number(priceEls[k].getAttribute('data-usd'));
+      if (lang === 'en'){
+        priceEls[k].textContent = 'from US$ ' + usd.toLocaleString('en-US');
+      } else {
+        var ars = Math.round(usd * usdRate / 10000) * 10000;
+        priceEls[k].textContent = 'desde AR$ ' + ars.toLocaleString('es-AR');
+      }
+    }
+  }
+  if (window.fetch){
+    fetch('https://dolarapi.com/v1/dolares/oficial')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d && d.venta > 0){
+          usdRate = d.venta;
+          renderPrices(htmlRoot && htmlRoot.getAttribute('lang') === 'en' ? 'en' : 'es');
+        }
+      })
+      .catch(function(){});
+  }
+
   function applyLang(lang){
     var nodes = document.querySelectorAll('[data-en]');
     for (var i = 0; i < nodes.length; i++){
@@ -1169,6 +1197,7 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
     if (pageTitle) pageTitle.textContent = lang === 'en' ? TITLE_EN : TITLE_ES;
     if (metaDesc) metaDesc.setAttribute('content', lang === 'en' ? DESC_EN : DESC_ES);
     if (langBtn) langBtn.textContent = lang === 'en' ? 'ES' : 'EN';
+    renderPrices(lang);
     try { localStorage.setItem('am-lang', lang); } catch (e) {}
   }
 

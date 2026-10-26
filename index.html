@@ -710,6 +710,25 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
 .wa-float::before{content:''; position:absolute; inset:0; border-radius:50%; background:#25D366; z-index:-1; animation:waPulse 3.2s 3s ease-out infinite;}
 @keyframes waPulse{0%{transform:scale(1); opacity:.55;}70%,100%{transform:scale(1.7); opacity:0;}}
 
+/* elementos que entran desde los costados */
+@keyframes inLeft{from{opacity:0; transform:translateX(-46px);}to{opacity:1; transform:none;}}
+@keyframes inRight{from{opacity:0; transform:translateX(46px);}to{opacity:1; transform:none;}}
+@keyframes inDown{from{opacity:0; transform:translateY(-24px);}to{opacity:1; transform:none;}}
+@keyframes popIn{0%{opacity:0; transform:scale(.6);}70%{transform:scale(1.08);}100%{opacity:1; transform:none;}}
+.hero-actions .btn:first-child{animation:inLeft .8s .7s cubic-bezier(.2,.7,.3,1) backwards;}
+.hero-actions .btn:last-child{animation:inRight .8s .85s cubic-bezier(.2,.7,.3,1) backwards;}
+.nav-cta{animation:inDown .7s .4s cubic-bezier(.2,.7,.3,1) backwards;}
+.case.seen .case-link{animation:inRight .8s .25s cubic-bezier(.2,.7,.3,1) backwards;}
+.case.seen .chip{animation:popIn .5s .35s backwards;}
+.case.seen .chip.ghost{animation-delay:.45s;}
+.tier.seen .tier-price{animation:popIn .55s .3s backwards; transform-origin:0 50%;}
+.step.reveal, .wa-chip.reveal, .pay-list li.reveal{transform:translateX(-40px);}
+.tier.reveal{transform:translateX(40px);}
+.step.reveal.seen, .wa-chip.reveal.seen, .pay-list li.reveal.seen, .tier.reveal.seen{transform:none;}
+/* carrusel: el texto de cada tema entra deslizándose */
+.hc-slide.active .svc-mark, .hc-slide.active h3, .hc-slide.active p{animation:inRight .6s cubic-bezier(.2,.7,.3,1) backwards;}
+.hc-slide.active h3{animation-delay:.08s;}
+.hc-slide.active p{animation-delay:.16s;}
 @media (prefers-reduced-motion:reduce){
   .reveal, .case .phone-frame, .case .browser-frame{opacity:1; transform:none;}
   .hero-grid h2 .hl{background-size:100% 3px;}
@@ -1269,18 +1288,29 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
       idx = (n + slides.length) % slides.length;
       track.style.transform = 'translateX(-' + (idx * 100) + '%)';
       dots.forEach(function(d,i){ d.classList.toggle('active', i === idx); });
+      slides.forEach(function(s,i){ s.classList.toggle('active', i === idx); });
     }
-    var auto = setInterval(function(){ go(idx + 1); }, 6000);
-    // En celu/tablet no hay "hover", así que un toque en flechas o puntos
-    // no frenaba el autoplay: seguía cambiando de tema solo mientras la
-    // persona intentaba leer o elegir. Ahora cualquier interacción manual
-    // (mouse o touch) lo frena, en las tres pantallas.
-    function stopAuto(){ clearInterval(auto); }
-    prevBtn.addEventListener('click', function(){ stopAuto(); go(idx - 1); });
-    nextBtn.addEventListener('click', function(){ stopAuto(); go(idx + 1); });
-    dots.forEach(function(d,i){ d.addEventListener('click', function(){ stopAuto(); go(i); }); });
-    document.querySelector('.hero-carousel').addEventListener('mouseenter', stopAuto);
-    document.querySelector('.hero-carousel').addEventListener('touchstart', stopAuto, {passive:true});
+    slides[0].classList.add('active');
+    // Pasa solo cada 3,5 s. Si alguien toca una flecha, un punto o desliza
+    // con el dedo, se frena un rato para dejar leer y después sigue solo.
+    // (Antes cualquier toque al pasar scrolleando lo frenaba para siempre.)
+    var auto, resume, carousel = document.querySelector('.hero-carousel');
+    function startAuto(){ clearInterval(auto); auto = setInterval(function(){ go(idx + 1); }, 3500); }
+    function pauseAuto(){ clearInterval(auto); clearTimeout(resume); resume = setTimeout(startAuto, 9000); }
+    startAuto();
+    prevBtn.addEventListener('click', function(){ pauseAuto(); go(idx - 1); });
+    nextBtn.addEventListener('click', function(){ pauseAuto(); go(idx + 1); });
+    dots.forEach(function(d,i){ d.addEventListener('click', function(){ pauseAuto(); go(i); }); });
+    carousel.addEventListener('mouseenter', function(){ clearInterval(auto); clearTimeout(resume); });
+    carousel.addEventListener('mouseleave', startAuto);
+    var x0 = null, y0 = 0;
+    carousel.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive:true});
+    carousel.addEventListener('touchend', function(e){
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){ pauseAuto(); go(idx + (dx < 0 ? 1 : -1)); }
+    }, {passive:true});
   }
   var langBtn = document.getElementById('langBtn');
   var htmlRoot = document.getElementById('htmlRoot');
@@ -1455,9 +1485,15 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
   if(still || !('IntersectionObserver' in window)) return;
 
   // Bloques que aparecen al bajar; los hermanos entran escalonados.
-  var groups = ['#trabajo', '.hero-carousel', '.stat', '.band-quote', '.step', '.sec-head', '.tier', '.price-region', '.budget-note', '.pay-head', '.pay-list li', '.contact-copy', '#form'];
+  var groups = ['.wa-chip', '#trabajo', '.hero-carousel', '.stat', '.band-quote', '.step', '.sec-head', '.tier', '.price-region', '.budget-note', '.pay-head', '.pay-list li', '.contact-copy', '#form'];
   var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('seen'); io.unobserve(e.target); } });
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      el.classList.add('seen'); io.unobserve(el);
+      // terminada la entrada, vuelve a sus transiciones de siempre (hover sin demora)
+      setTimeout(function(){ el.classList.remove('reveal'); }, 1400);
+    });
   }, { threshold:0.12, rootMargin:'0px 0px -6% 0px' });
   groups.forEach(function(sel){
     Array.prototype.forEach.call(document.querySelectorAll(sel), function(el, i){

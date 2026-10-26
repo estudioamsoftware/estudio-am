@@ -664,7 +664,7 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
 @keyframes hlLine{to{background-size:100% 3px;}}
 
 /* aparecer al bajar */
-.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); transition-delay:var(--d,0s);}
+.reveal{opacity:0; transform:translateY(40px); transition:opacity 1.2s cubic-bezier(.25,.8,.35,1), transform 1.2s cubic-bezier(.25,.8,.35,1); transition-delay:var(--d,0s);}
 .reveal.seen{opacity:1; transform:none;}
 
 /* capturas: entran de a una cuando aparece el proyecto, y se levantan al pasar el mouse */
@@ -711,24 +711,25 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
 @keyframes waPulse{0%{transform:scale(1); opacity:.55;}70%,100%{transform:scale(1.7); opacity:0;}}
 
 /* elementos que entran desde los costados */
-@keyframes inLeft{from{opacity:0; transform:translateX(-46px);}to{opacity:1; transform:none;}}
-@keyframes inRight{from{opacity:0; transform:translateX(46px);}to{opacity:1; transform:none;}}
-@keyframes inDown{from{opacity:0; transform:translateY(-24px);}to{opacity:1; transform:none;}}
+html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la página */
+@keyframes inLeft{from{opacity:0; transform:translateX(-140px);}to{opacity:1; transform:none;}}
+@keyframes inRight{from{opacity:0; transform:translateX(140px);}to{opacity:1; transform:none;}}
+@keyframes inDown{from{opacity:0; transform:translateY(-60px);}to{opacity:1; transform:none;}}
 @keyframes popIn{0%{opacity:0; transform:scale(.6);}70%{transform:scale(1.08);}100%{opacity:1; transform:none;}}
-.hero-actions .btn:first-child{animation:inLeft .8s .7s cubic-bezier(.2,.7,.3,1) backwards;}
-.hero-actions .btn:last-child{animation:inRight .8s .85s cubic-bezier(.2,.7,.3,1) backwards;}
-.nav-cta{animation:inDown .7s .4s cubic-bezier(.2,.7,.3,1) backwards;}
-.case.seen .case-link{animation:inRight .8s .25s cubic-bezier(.2,.7,.3,1) backwards;}
-.case.seen .chip{animation:popIn .5s .35s backwards;}
-.case.seen .chip.ghost{animation-delay:.45s;}
-.tier.seen .tier-price{animation:popIn .55s .3s backwards; transform-origin:0 50%;}
-.step.reveal, .wa-chip.reveal, .pay-list li.reveal{transform:translateX(-40px);}
-.tier.reveal{transform:translateX(40px);}
+.hero-actions .btn:first-child{animation:inLeft 1.4s 1s cubic-bezier(.25,.8,.35,1) backwards;}
+.hero-actions .btn:last-child{animation:inRight 1.4s 1.3s cubic-bezier(.25,.8,.35,1) backwards;}
+.nav-cta{animation:inDown 1.2s .6s cubic-bezier(.25,.8,.35,1) backwards;}
+.case.seen .case-link{animation:inRight 1.3s .4s cubic-bezier(.25,.8,.35,1) backwards;}
+.case.seen .chip{animation:popIn .9s .5s backwards;}
+.case.seen .chip.ghost{animation-delay:.75s;}
+.tier.seen .tier-price{animation:popIn .9s .6s backwards; transform-origin:0 50%;}
+.step.reveal, .wa-chip.reveal, .pay-list li.reveal{transform:translateX(-110px);}
+.tier.reveal{transform:translateX(110px);}
 .step.reveal.seen, .wa-chip.reveal.seen, .pay-list li.reveal.seen, .tier.reveal.seen{transform:none;}
 /* carrusel: el texto de cada tema entra deslizándose */
-.hc-slide.active .svc-mark, .hc-slide.active h3, .hc-slide.active p{animation:inRight .6s cubic-bezier(.2,.7,.3,1) backwards;}
-.hc-slide.active h3{animation-delay:.08s;}
-.hc-slide.active p{animation-delay:.16s;}
+.hc-slide.active .svc-mark, .hc-slide.active h3, .hc-slide.active p{animation:inRight .9s cubic-bezier(.25,.8,.35,1) backwards;}
+.hc-slide.active h3{animation-delay:.12s;}
+.hc-slide.active p{animation-delay:.24s;}
 @media (prefers-reduced-motion:reduce){
   .reveal, .case .phone-frame, .case .browser-frame{opacity:1; transform:none;}
   .hero-grid h2 .hl{background-size:100% 3px;}
@@ -1492,13 +1493,13 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
       var el = e.target;
       el.classList.add('seen'); io.unobserve(el);
       // terminada la entrada, vuelve a sus transiciones de siempre (hover sin demora)
-      setTimeout(function(){ el.classList.remove('reveal'); }, 1400);
+      setTimeout(function(){ el.classList.remove('reveal'); }, 2600);
     });
   }, { threshold:0.12, rootMargin:'0px 0px -6% 0px' });
   groups.forEach(function(sel){
     Array.prototype.forEach.call(document.querySelectorAll(sel), function(el, i){
       el.classList.add('reveal');
-      el.style.setProperty('--d', Math.min(i, 5) * 0.09 + 's');
+      el.style.setProperty('--d', Math.min(i, 5) * 0.18 + 's');
       io.observe(el);
     });
   });

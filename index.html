@@ -1170,8 +1170,14 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
           <div class="tier">
             <span class="scale" data-en="Add-on service">Servicio adicional</span>
             <h4 data-en="Local search visibility on Google">Posicionamiento local en Google</h4>
-            <p data-en="Setup and optimisation of your Google Business Profile, so your business can appear on Maps and in local searches, with photos, opening hours and a link to your site. You receive it ready to use, with full access to add posts, photos and replies to reviews whenever you like. Search rankings are decided by Google, so no specific position can be guaranteed.">Configuración y optimización de tu Perfil de Negocio de Google, para que tu negocio pueda aparecer en Maps y en las búsquedas de tu zona, con fotos, horarios y enlace a tu sitio. Lo recibís listo y con acceso completo, para sumar publicaciones, fotos y respuestas a reseñas cuando quieras. El orden de los resultados lo define Google, por lo que no es posible garantizar una posición.</p>
+            <p data-en="Setup and optimisation of your Google Business Profile, so your business can appear on Maps and in local searches, with photos, opening hours and a link to your site. Search rankings are decided by Google, so no specific position can be guaranteed.">Configuración y optimización de tu Perfil de Negocio de Google, para que tu negocio pueda aparecer en Maps y en las búsquedas de tu zona, con fotos, horarios y enlace a tu sitio. El orden de los resultados lo define Google, por lo que no es posible garantizar una posición.</p>
             <span class="tier-price" data-usd="70" data-usd-intl="180">desde AR$ 110.000</span>
+          </div>
+          <div class="tier">
+            <span class="scale" data-en="Optional">Opcional</span>
+            <h4 data-en="Website maintenance">Mantenimiento de la página</h4>
+            <p data-en="You send me photos, prices and news over WhatsApp, and I publish them on your site and your Google profile. Monthly fee, cancel anytime.">Me mandás las fotos, los precios y las novedades por WhatsApp, y yo los publico en tu sitio y en tu perfil de Google. Abono mensual, sin permanencia.</p>
+            <span class="tier-price" data-usd="30" data-usd-intl="60" data-monthly>desde AR$ 50.000 por mes</span>
           </div>
         </div>
         <p class="price-region" data-en="International prices, for clients outside Argentina. I work remotely, in English, with clients anywhere.">Precios para clientes de Argentina, en pesos al dólar oficial del día.</p>
@@ -1191,7 +1197,7 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
           <li data-en="<strong>No monthly hosting fee</strong> &#8212; your site stays online with no fixed costs"><strong>Sin costo mensual de hosting</strong> &#8212; tu sitio queda publicado sin gastos fijos</li>
           <li data-en="<strong>Domain in your name</strong> &#8212; your web address belongs to you"><strong>Dominio a tu nombre</strong> &#8212; la dirección web es tuya</li>
           <li data-en="<strong>30 days of free adjustments</strong> &#8212; after delivery, to fine-tune whatever needs it"><strong>30 días de ajustes sin cargo</strong> &#8212; después de la entrega, para afinar lo que haga falta</li>
-          <li data-en="<strong>Content updates</strong> &#8212; you make them yourself from your panel, or, if you prefer, I handle them as an optional paid service"><strong>Actualización de contenido</strong> &#8212; la hacés vos desde tu panel o, si preferís, me encargo yo como servicio opcional con costo aparte</li>
+          <li data-en="<strong>Optional maintenance</strong> &#8212; a monthly fee for me to take care of the updates"><strong>Mantenimiento opcional</strong> &#8212; un abono mensual para que me encargue de las actualizaciones</li>
           <li data-en="<strong>New features</strong> &#8212; quoted separately, whenever you need them"><strong>Funciones nuevas</strong> &#8212; se presupuestan aparte, cuando las necesites</li>
         </ul>
       </div>
@@ -1297,10 +1303,10 @@ section[id], article[id], #trabajo{scroll-margin-top:96px;}
       var usd = Number(priceEls[k].getAttribute('data-usd'));
       if (lang === 'en'){
         var intl = Number(priceEls[k].getAttribute('data-usd-intl'));
-        priceEls[k].textContent = 'from US$ ' + intl.toLocaleString('en-US');
+        priceEls[k].textContent = 'from US$ ' + intl.toLocaleString('en-US') + (priceEls[k].hasAttribute('data-monthly') ? ' per month' : '');
       } else {
         var ars = Math.round(usd * usdRate / 10000) * 10000;
-        priceEls[k].textContent = 'desde AR$ ' + ars.toLocaleString('es-AR');
+        priceEls[k].textContent = 'desde AR$ ' + ars.toLocaleString('es-AR') + (priceEls[k].hasAttribute('data-monthly') ? ' por mes' : '');
       }
     }
   }

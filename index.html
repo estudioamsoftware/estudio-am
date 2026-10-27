@@ -499,6 +499,8 @@ p{text-wrap:pretty;}
   margin-top:18px; padding-top:16px; border-top:1px dashed var(--filo);
   font-size:.9rem; color:var(--humo); line-height:1.5;
 }
+html:lang(en) .only-es{display:none;}
+html:not(:lang(en)) .only-en{display:none;}
 .pay-head{
   font-family:var(--f-mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
   color:var(--humo-soft); display:block; margin-bottom:14px;
@@ -1201,8 +1203,9 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
       <div>
         <span class="pay-head" data-en="Ways to pay">Formas de pago</span>
         <ul class="pay-list">
-          <li data-en="<strong>Transfer</strong> &#8212; from your bank or the payment app you use"><strong>Transferencia</strong> &#8212; desde tu banco, Mercado Pago o la billetera que uses</li>
-          <li data-en="<strong>Credit card</strong>"><strong>Tarjeta de crédito</strong></li>
+          <li class="only-es" data-en="<strong>Transfer</strong> &#8212; from your bank or the payment app you use"><strong>Transferencia</strong> &#8212; desde tu banco, Mercado Pago o la billetera que uses</li>
+          <li class="only-es" data-en="<strong>Credit card</strong>"><strong>Tarjeta de crédito</strong></li>
+          <li class="only-en" data-en="<strong>Bank transfer in euros (SEPA)</strong> &#8212; for clients in Europe"><strong>Transferencia en euros (SEPA)</strong> &#8212; para clientes de Europa</li>
           <li data-en="<strong>In stages</strong> &#8212; a deposit to get started and the rest on delivery"><strong>En etapas</strong> &#8212; un adelanto para arrancar y el resto contra entrega</li>
         </ul>
         <span class="pay-head" style="margin-top:34px;" data-en="After delivery">Después de la entrega</span>

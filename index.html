@@ -1168,7 +1168,7 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
             <span class="scale" data-en="Starting point">Punto de partida</span>
             <h4 data-en="Business website">Sitio web institucional</h4>
             <p data-en="Your business presented clearly and professionally. It&#39;s the most accessible option and includes basic search engine optimisation (SEO).">Tu negocio presentado de forma clara y profesional. Es la opción más accesible e incluye la optimización básica para buscadores (SEO).</p>
-            <span class="tier-price" data-usd="200" data-usd-intl="500" data-ars="350000">desde AR$ 350.000</span>
+            <span class="tier-price" data-usd="200" data-usd-intl="500">desde AR$ 310.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Mid-size project">Proyecto intermedio</span>
@@ -1327,7 +1327,7 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
   // Precios del presupuesto: la base está en dólares (data-usd). En español se
   // muestran en pesos al dólar oficial del día; si no se puede consultar, se usa
   // el último valor cargado a mano. En inglés se muestra el precio para clientes
-  // de afuera (data-usd-intl). Si hay data-ars, ese precio en pesos queda fijo.
+  // de afuera (data-usd-intl).
   var usdRate = 1550;
   var priceEls = document.querySelectorAll('.tier-price[data-usd]');
   function renderPrices(lang){
@@ -1337,7 +1337,7 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
         var intl = Number(priceEls[k].getAttribute('data-usd-intl'));
         priceEls[k].textContent = 'from US$ ' + intl.toLocaleString('en-US') + (priceEls[k].hasAttribute('data-monthly') ? ' per month' : '');
       } else {
-        var ars = priceEls[k].hasAttribute('data-ars') ? Number(priceEls[k].getAttribute('data-ars')) : Math.round(usd * usdRate / 10000) * 10000;
+        var ars = Math.round(usd * usdRate / 10000) * 10000;
         priceEls[k].textContent = 'desde AR$ ' + ars.toLocaleString('es-AR') + (priceEls[k].hasAttribute('data-monthly') ? ' por mes' : '');
       }
     }

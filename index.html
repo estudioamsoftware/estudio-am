@@ -458,10 +458,6 @@ p{text-wrap:pretty;}
 .budget-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,64px); align-items:start;}
 .tiers{display:grid; gap:1px; background:var(--filo); border:1px solid var(--filo); border-top:3px solid var(--oro);}
 .tier{background:var(--crema); padding:20px 22px;}
-.tier-price{
-  display:block; margin-top:10px; font-family:var(--f-mono); font-size:.78rem;
-  color:var(--oro-deep); font-weight:600;
-}
 
 /* ---------- WHATSAPP FLOTANTE ---------- */
 .wa-float{
@@ -494,7 +490,6 @@ p{text-wrap:pretty;}
   font-family:var(--f-mono); font-size:.6rem; letter-spacing:.13em; text-transform:uppercase;
   color:var(--oro-deep); display:block; margin-bottom:9px;
 }
-.price-region{margin:12px 0 0; font-family:var(--f-mono); font-size:.68rem; letter-spacing:.04em; color:var(--humo);}
 .budget-note{
   margin-top:18px; padding-top:16px; border-top:1px dashed var(--filo);
   font-size:.9rem; color:var(--humo); line-height:1.5;
@@ -736,7 +731,6 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
 .case.seen .case-link{animation:inRight 1.3s .4s cubic-bezier(.25,.8,.35,1) backwards;}
 .case.seen .chip{animation:popIn .9s .5s backwards;}
 .case.seen .chip.ghost{animation-delay:.75s;}
-.tier.seen .tier-price{animation:popIn .9s .6s backwards; transform-origin:0 50%;}
 .step.reveal, .wa-chip.reveal, .pay-list li.reveal{transform:translateX(-110px);}
 .tier.reveal{transform:translateX(110px);}
 .step.reveal.seen, .wa-chip.reveal.seen, .pay-list li.reveal.seen, .tier.reveal.seen{transform:none;}
@@ -1152,7 +1146,7 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
     <div class="sec-head">
       <div>
         <h2 data-en="How pricing works.">Cómo se calcula el presupuesto.</h2>
-        <p data-en="Every project is quoted on its actual scope, so we send you the final quote in writing after a first conversation. A website, an everyday app and a complete system each call for a different amount of work. As a guide:">Cada proyecto se cotiza según su alcance real, por eso el presupuesto final te lo enviamos por escrito después de una primera conversación. Un sitio web, una aplicación de uso diario y un sistema completo requieren niveles de trabajo distintos. Como referencia:</p>
+        <p data-en="Every project is quoted on its actual scope, so we send you the final quote in writing after a first conversation. A website, an everyday app and a complete system each call for a different amount of work. These are the most common options:">Cada proyecto se cotiza según su alcance real, por eso el presupuesto final te lo enviamos por escrito después de una primera conversación. Un sitio web, una aplicación de uso diario y un sistema completo requieren niveles de trabajo distintos. Estas son las opciones más habituales:</p>
       </div>
     </div>
 
@@ -1163,40 +1157,33 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
             <span class="scale" data-en="Starting point">Punto de partida</span>
             <h4 data-en="Business website">Sitio web institucional</h4>
             <p data-en="Your business presented clearly and professionally. It&#39;s the most accessible option and includes basic search engine optimisation (SEO).">Tu negocio presentado de forma clara y profesional. Es la opción más accesible e incluye la optimización básica para buscadores (SEO).</p>
-            <span class="tier-price" data-usd="200" data-usd-intl="500">desde AR$ 310.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Mid-size project">Proyecto intermedio</span>
             <h4 data-en="App for one specific task">Aplicación para una tarea específica</h4>
             <p data-en="Sales, bookings, attendance or expenses — whichever task takes up most of your time today. One-off payment, and the app is yours. Web or native for Android.">Ventas, reservas, asistencia o gastos: la tarea que hoy más tiempo te consume. Pago único, y la aplicación es tuya. Web o nativa para Android.</p>
-            <span class="tier-price" data-usd="420" data-usd-intl="950">desde AR$ 650.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Online sales">Venta online</span>
             <h4 data-en="Online store">Tienda online</h4>
             <p data-en="Catalogue, cart and orders that arrive ready to confirm on WhatsApp, as in the Vera Bocados project.">Catálogo, carrito y pedidos que llegan listos para confirmar por WhatsApp, como en el caso de Vera Bocados.</p>
-            <span class="tier-price" data-usd="500" data-usd-intl="1100">desde AR$ 780.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Full-scale project">Proyecto integral</span>
             <h4 data-en="Complete management system">Sistema de gestión integral</h4>
             <p data-en="Several integrated modules, offline operation, cloud backup and receipts, like the systems shown above.">Varios módulos integrados, funcionamiento sin conexión, respaldo en la nube y emisión de comprobantes, como los sistemas presentados más arriba.</p>
-            <span class="tier-price" data-usd="1100" data-usd-intl="2200">desde AR$ 1.710.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Add-on service">Servicio adicional</span>
             <h4 data-en="Local search visibility on Google">Posicionamiento local en Google</h4>
             <p data-en="Setup and optimisation of your Google Business Profile, so your business can appear on Maps and in local searches, with photos, opening hours and a link to your site.">Configuración y optimización de tu Perfil de Negocio de Google, para que tu negocio pueda aparecer en Maps y en las búsquedas de tu zona, con fotos, horarios y enlace a tu sitio.</p>
-            <span class="tier-price" data-usd="70" data-usd-intl="180">desde AR$ 110.000</span>
           </div>
           <div class="tier">
             <span class="scale" data-en="Optional">Opcional</span>
             <h4 data-en="Website maintenance">Mantenimiento de la página</h4>
             <p data-en="Regular updates of photos, prices and news on your website and your Google Business Profile, based on the material you send over WhatsApp. Monthly fee, no minimum term.">Actualización periódica de fotos, precios y novedades en tu sitio y en tu Perfil de Negocio de Google, a partir del material que envíes por WhatsApp. Abono mensual, sin permanencia.</p>
-            <span class="tier-price" data-usd="30" data-usd-intl="60" data-monthly>desde AR$ 50.000 por mes</span>
           </div>
         </div>
-        <p class="price-region" data-en="International prices, for clients outside Argentina. We work remotely, in English, with clients anywhere.">Precios para clientes de Argentina, en pesos al dólar oficial del día.</p>
         <p class="budget-note" data-en="You can always start with the essentials and add features later: the system grows in stages, at your pace.">Siempre podés empezar por lo esencial y sumar funciones más adelante: el sistema crece por etapas, a tu ritmo.</p>
       </div>
 
@@ -1211,7 +1198,7 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
         <span class="pay-head" style="margin-top:34px;" data-en="After delivery">Después de la entrega</span>
         <ul class="pay-list">
           <li data-en="<strong>No monthly hosting fee</strong> &#8212; your site stays online with no fixed costs"><strong>Sin costo mensual de hosting</strong> &#8212; tu sitio queda publicado sin gastos fijos</li>
-          <li data-en="<strong>Domain management included</strong> &#8212; registration and setup of your web address, which belongs to you and is transferred to your name whenever you request it. Yearly domain fee: .com from US$ 20"><strong>Gestión del dominio incluida</strong> &#8212; registro y configuración de la dirección web, que es de tu propiedad y se transfiere a tu nombre cuando lo solicites. Costo anual del dominio: .com.ar desde AR$ 9.000 y .com desde AR$ 25.000</li>
+          <li data-en="<strong>Domain management included</strong> &#8212; registration and setup of your web address, which belongs to you and is transferred to your name whenever you request it"><strong>Gestión del dominio incluida</strong> &#8212; registro y configuración de la dirección web, que es de tu propiedad y se transfiere a tu nombre cuando lo solicites</li>
           <li data-en="<strong>30 days of free adjustments</strong> &#8212; after delivery, to fine-tune whatever needs it"><strong>30 días de ajustes sin cargo</strong> &#8212; después de la entrega, para afinar lo que haga falta</li>
           <li data-en="<strong>Optional maintenance</strong> &#8212; a monthly fee that covers content updates"><strong>Mantenimiento opcional</strong> &#8212; abono mensual que incluye la actualización de contenidos</li>
           <li data-en="<strong>New features</strong> &#8212; quoted separately, whenever you need them"><strong>Funciones nuevas</strong> &#8212; se presupuestan aparte, cuando las necesites</li>
@@ -1320,36 +1307,6 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
   var DESC_ES = 'Desarrollamos apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes. Sistemas funcionando todos los días en Argentina.';
   var DESC_EN = 'Studio building custom apps and websites for small businesses: point of sale, bookings, attendance, QR menus and online stores. Based in Argentina, working remotely with clients anywhere.';
 
-  // Precios del presupuesto: la base está en dólares (data-usd). En español se
-  // muestran en pesos al dólar oficial del día; si no se puede consultar, se usa
-  // el último valor cargado a mano. En inglés se muestra el precio para clientes
-  // de afuera (data-usd-intl).
-  var usdRate = 1550;
-  var priceEls = document.querySelectorAll('.tier-price[data-usd]');
-  function renderPrices(lang){
-    for (var k = 0; k < priceEls.length; k++){
-      var usd = Number(priceEls[k].getAttribute('data-usd'));
-      if (lang === 'en'){
-        var intl = Number(priceEls[k].getAttribute('data-usd-intl'));
-        priceEls[k].textContent = 'from US$ ' + intl.toLocaleString('en-US') + (priceEls[k].hasAttribute('data-monthly') ? ' per month' : '');
-      } else {
-        var ars = Math.round(usd * usdRate / 10000) * 10000;
-        priceEls[k].textContent = 'desde AR$ ' + ars.toLocaleString('es-AR') + (priceEls[k].hasAttribute('data-monthly') ? ' por mes' : '');
-      }
-    }
-  }
-  if (window.fetch){
-    fetch('https://dolarapi.com/v1/dolares/oficial')
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        if (d && d.venta > 0){
-          usdRate = d.venta;
-          renderPrices(htmlRoot && htmlRoot.getAttribute('lang') === 'en' ? 'en' : 'es');
-        }
-      })
-      .catch(function(){});
-  }
-
   function applyLang(lang){
     var nodes = document.querySelectorAll('[data-en]');
     for (var i = 0; i < nodes.length; i++){
@@ -1369,7 +1326,6 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
     var ogUrl = document.getElementById('ogUrl');
     if (ogUrl) ogUrl.setAttribute('content', 'https://estudioamdev.com.ar/' + (lang === 'en' ? '?lang=en' : ''));
     if (langBtn) langBtn.textContent = lang === 'en' ? 'ES' : 'EN';
-    renderPrices(lang);
     try { localStorage.setItem('am-lang', lang); } catch (e) {}
   }
 
@@ -1483,7 +1439,7 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
   if(still || !('IntersectionObserver' in window)) return;
 
   // Bloques que aparecen al bajar; los hermanos entran escalonados.
-  var groups = ['.wa-chip', '#trabajo', '.hero-carousel', '.stat', '.band-quote', '.step', '.sec-head', '.tier', '.price-region', '.budget-note', '.pay-head', '.pay-list li', '.contact-copy', '#form'];
+  var groups = ['.wa-chip', '#trabajo', '.hero-carousel', '.stat', '.band-quote', '.step', '.sec-head', '.tier', '.budget-note', '.pay-head', '.pay-list li', '.contact-copy', '#form'];
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(!e.isIntersecting) return;

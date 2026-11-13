@@ -15,6 +15,16 @@
 // entrega traducida; esto es solo un respaldo por si se abre sin pasar por él.
 (function(){
   if (/[?&]lang=en(&|$)/.test(location.search)){
+    // Quien tiene el celular en español y no eligió inglés a propósito (con el botón EN)
+    // va directo a la versión en español. Google navega en inglés, así que igual ve esta.
+    var chosen = null;
+    try { chosen = localStorage.getItem('am-lang'); } catch (e) {}
+    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    if (chosen !== 'en' && /^es\b/i.test(langs[0] || '')){
+      var q = location.search.replace(/^\?/, '').split('&').filter(function(s){ return s && s.indexOf('lang=') !== 0; });
+      location.replace(location.pathname + (q.length ? '?' + q.join('&') : '') + location.hash);
+      return;
+    }
     var c = document.getElementById('canonical');
     if (c) c.href = c.getAttribute('data-en-href');
     document.documentElement.lang = 'en';

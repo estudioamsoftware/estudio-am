@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">Estudio AM — Apps y sitios web a medida</title>
-<meta name="description" id="metaDesc" content="Desarrollamos apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes. Sistemas funcionando todos los días en Argentina.">
+<title id="pageTitle" data-en="Estudio AM — Custom apps &amp; websites for small businesses">Estudio AM — Apps y sitios web a medida</title>
+<meta name="description" id="metaDesc" data-en-content="Studio building custom apps and websites for small businesses: point of sale, bookings, attendance, QR menus and online stores. Based in Argentina, working remotely with clients anywhere." content="Desarrollamos apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes. Sistemas funcionando todos los días en Argentina.">
 <link rel="alternate" hreflang="es" href="https://estudioamdev.com.ar/">
 <link rel="alternate" hreflang="en" href="https://estudioamdev.com.ar/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://estudioamdev.com.ar/">
+<link rel="canonical" id="canonical" data-en-href="https://estudioamdev.com.ar/?lang=en" href="https://estudioamdev.com.ar/">
 <script>
 // La versión en inglés tiene su propia dirección (?lang=en) para que Google la indexe aparte:
-// cada versión se declara a sí misma como canónica.
+// cada versión se declara a sí misma como canónica. El servidor (functions/index.js) ya la
+// entrega traducida; esto es solo un respaldo por si se abre sin pasar por él.
 (function(){
-  var en = /[?&]lang=en(&|$)/.test(location.search);
-  var c = document.createElement('link');
-  c.rel = 'canonical';
-  c.href = 'https://estudioamdev.com.ar/' + (en ? '?lang=en' : '');
-  document.head.appendChild(c);
-  if (en) document.documentElement.lang = 'en';
+  if (/[?&]lang=en(&|$)/.test(location.search)){
+    var c = document.getElementById('canonical');
+    if (c) c.href = c.getAttribute('data-en-href');
+    document.documentElement.lang = 'en';
+  }
 })();
 </script>
-<meta property="og:url" id="ogUrl" content="https://estudioamdev.com.ar/">
+<meta property="og:url" id="ogUrl" data-en-content="https://estudioamdev.com.ar/?lang=en" content="https://estudioamdev.com.ar/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Estudio AM">
-<meta property="og:title" content="Estudio AM — Apps y sitios web a medida">
-<meta property="og:description" content="Desarrollamos apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes. Sistemas funcionando todos los días en Argentina.">
-<meta property="og:locale" content="es_AR">
+<meta property="og:title" data-en-content="Estudio AM — Custom apps &amp; websites for small businesses" content="Estudio AM — Apps y sitios web a medida">
+<meta property="og:description" data-en-content="Studio building custom apps and websites for small businesses: point of sale, bookings, attendance, QR menus and online stores. Based in Argentina, working remotely with clients anywhere." content="Desarrollamos apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes. Sistemas funcionando todos los días en Argentina.">
+<meta property="og:locale" data-en-content="en_US" content="es_AR">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Estudio AM","url":"https://estudioamdev.com.ar/","email":"hola@estudioamdev.com.ar","telephone":"+5492236858197","description":"Desarrollo de apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes.","address":{"@type":"PostalAddress","addressLocality":"Mar del Plata","addressRegion":"Buenos Aires","addressCountry":"AR"},"areaServed":"AR","knowsLanguage":["es","en"]}
 </script>
@@ -1302,13 +1303,21 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
   var pageTitle = document.getElementById('pageTitle');
   var metaDesc = document.getElementById('metaDesc');
 
+  // Si el servidor ya entregó la página en inglés, el texto en español no está en el HTML:
+  // para volver a español se recarga la dirección sin ?lang=en.
+  var servedEn = htmlRoot && htmlRoot.getAttribute('data-served-lang') === 'en';
   var TITLE_ES = 'Estudio AM — Apps y sitios web a medida';
-  var TITLE_EN = 'Estudio AM — Custom apps & websites for small businesses';
+  var TITLE_EN = pageTitle ? pageTitle.getAttribute('data-en') : TITLE_ES;
   var DESC_ES = 'Desarrollamos apps y sitios web a medida para comercios, bares, alquileres, escuelas y proyectos independientes. Sistemas funcionando todos los días en Argentina.';
-  var DESC_EN = 'Studio building custom apps and websites for small businesses: point of sale, bookings, attendance, QR menus and online stores. Based in Argentina, working remotely with clients anywhere.';
+  var DESC_EN = metaDesc ? metaDesc.getAttribute('data-en-content') : DESC_ES;
 
   function applyLang(lang){
-    var nodes = document.querySelectorAll('[data-en]');
+    if (servedEn && lang === 'en'){
+      if (langBtn) langBtn.textContent = 'ES';
+      try { localStorage.setItem('am-lang', 'en'); } catch (e) {}
+      return;
+    }
+    var nodes = document.querySelectorAll('body [data-en]');
     for (var i = 0; i < nodes.length; i++){
       var el = nodes[i];
       if (!el.hasAttribute('data-es')) el.setAttribute('data-es', el.innerHTML);
@@ -1337,6 +1346,11 @@ html, body{overflow-x:clip;} /* que lo que entra de costado no haga correr la p�
   if (langBtn){
     langBtn.addEventListener('click', function(){
       var next = (htmlRoot.getAttribute('lang') === 'en') ? 'es' : 'en';
+      if (servedEn && next === 'es'){
+        try { localStorage.setItem('am-lang', 'es'); } catch (e) {}
+        location.href = location.pathname + location.hash;
+        return;
+      }
       applyLang(next);
       // La dirección acompaña al idioma, así el link que se comparte abre en el mismo idioma.
       try {

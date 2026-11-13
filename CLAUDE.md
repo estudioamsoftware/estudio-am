@@ -2,6 +2,8 @@
 
 Sitio de una sola página: todo está en `index.html` (CSS y JS inline, imágenes embebidas en base64). Textos en español con traducción en inglés en el atributo `data-en`; al cambiar un texto, actualizar los dos.
 
+La versión en inglés (`?lang=en`) la entrega ya traducida `functions/index.js` (Cloudflare Pages Function), leyendo los `data-en` / `data-en-content` / `data-en-href` / `data-en-placeholder` de `index.html`; así Google la indexa como página propia.
+
 ## Git
 
 - Siempre hacer push directo a `main`.
